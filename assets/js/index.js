@@ -131,7 +131,7 @@ let img = ''
 let ul = document.querySelector('.leave')
 let data = [{
     username: '邪刃',
-    imgSrc: 'https://raw.githubusercontent.com/2076833521/2076833521.github.io/main/assets/images/xieren.png',
+    imgSrc: 'https://raw.githubusercontent.com/2076833521/2076833521.github.io/main/assets/images/xf.jpg',
     comments: '希望，总是平平淡淡，来去迂回，我想要的，一直很简单。'
 },
 {
