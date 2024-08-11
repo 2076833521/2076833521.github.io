@@ -1,0 +1,319 @@
+<!--
+拟态UI4.0个人主页设计采用GPL3.0开源协议
+博客：www.xfwl.club
+作者：小枫
+QQ：1809185784
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta name="viewport" content="initial-scale=1, width=device-width, user-scalable=0, maximum-scale=1">
+    <title>小枫拟态ui4.0-个人引导页</title>
+    <meta name="keywords" content="拟态ui设计,拟态ui,个人引导页,个人主页,个人介绍页,拟态引导页,简约个人主页,个人主页源码">
+    <meta name="description" content="拟态UI设计是小枫原创的一款简约平滑开源的个人主页设计。">
+    <meta name="author" content="小枫QQ1809185784">
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/font.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- 如果这些插件库某天失效了，可以尝试把插件库存放到自己的cdn里（不建议存放本地） -->
+    <script src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/axios/0.19.2/axios.min.js"></script>
+    <script src="https://cdn.staticfile.org/dayjs/1.8.21/dayjs.min.js"></script>
+    <script src="https://npm.elemecdn.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://npm.elemecdn.com/dark-mode-switcheroo/dist/dark-mode.min.js"></script>
+</head>
+
+<body>
+    <div class="xf_load"></div>
+    <svg class="xf_triangle" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="420px"
+        height="403px" style="position: absolute; top: -135px; left: -120px;">
+        <defs>
+            <filter filterUnits="userSpaceOnUse" id="Filter_0" x="0px" y="0px" width="420px" height="403px">
+                <feOffset in="SourceAlpha" dx="6.691" dy="7.431" />
+                <feGaussianBlur result="blurOut" stdDeviation="3.606" />
+                <feFlood flood-color="rgb(220, 220, 220)" result="floodOut" />
+                <feComposite operator="atop" in="floodOut" in2="blurOut" />
+                <feComponentTransfer>
+                    <feFuncA type="linear" slope="1" />
+                </feComponentTransfer>
+                <feMerge>
+                    <feMergeNode />
+                    <feMergeNode in="SourceGraphic" />
+                </feMerge>
+            </filter>
+        </defs>
+        <g filter="url(#Filter_0)">
+            <path fill-rule="evenodd" fill="rgb(235, 236, 240)"
+                d="M399.535,130.239 L113.067,382.877 L19.129,19.632 L399.535,130.239 Z" style="transition: all .2s;" />
+        </g>
+    </svg>
+    <main class="core tow_core three_core">
+        <header class="xf_hd">
+            <h1 style="display: none;">小枫拟态ui4.0-个人引导页</h1>
+            <h2>Mimic UI4.0</h2>
+        </header>
+        <section class="xf_content">
+            <nav class="xf_nav xf_mimic_outer">
+                <div class="xf_center_box">
+                    <div class="Certification"></div>
+                    <div class="xf_tx" data-tip="混蛋，不要碰我啊！！！">
+                        <img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-dec470b0-fed6-46e5-be53-ec85fadc01be/5b4bf217-52e8-4f39-9df5-e3ceb0b2282a.png">
+                        <img class="xf_mimic_outer" src="assets/images/xf.jpg" alt="头像">
+                    </div>
+                    <ul class="xf_name">
+                        <li class="xf_mimic_outer hello">Good morning</li>
+                        <li class="xf_mimic_outer">阿婆枫 | UP Maple</li>
+                        <li class="xf_mimic_outer address">吉安市 高温 99℃ 低温 -99℃</li>
+                    </ul>
+                    <div class="clock xf_mimic_outer">
+                        <div class="hand hours"></div>
+                        <div class="hand minutes"></div>
+                        <div class="hand seconds"></div>
+                        <div class="point"></div>
+                        <div class="marker">
+                            <span class="marker__1"></span>
+                            <span class="marker__2"></span>
+                            <span class="marker__3"></span>
+                            <span class="marker__4"></span>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div class="xf_big_box">
+                <div class="xf_box_left">
+                    <div class="segmented-control xf_mimic_outer">
+                        <input type="radio" name="radio2" value="3" id="tab-1" checked="">
+                        <label for="tab-1" class="segmented-control__1 info">
+                            <p>关于</p>
+                        </label>
+                        <input type="radio" name="radio2" value="4" id="tab-2">
+                        <label for="tab-2" class="segmented-control__2 info">
+                            <p>信息</p>
+                        </label>
+                        <input type="radio" name="radio2" value="5" id="tab-3">
+                        <label for="tab-3" class="segmented-control__3 info">
+                            <p>留言</p>
+                        </label>
+                        <div class="segmented-control__color"></div>
+                    </div>
+                    <div class="xf_Show_box">
+                        <div class="menu_1 menu_2 xf_text xf_mimic_internal">
+                            <p id="xf_typewriter"></p>
+                        </div>
+                        <div class="menu_1 xf_information">
+                            <div class="xf_name_age">
+                                <h3 class="xf_mimic_outer">
+                                    <span><i class="iconfont">&#xe605;</i><strong>姓名：</strong>小枫</span>
+                                </h3>
+                                <h3 class="xf_mimic_outer">
+                                    <span><i class="iconfont">&#xe6d8;</i><strong>年龄：</strong>19岁</span>
+                                </h3>
+                            </div>
+                            <div class="xf_area_like">
+                                <h3 class="xf_mimic_outer">
+                                    <span><i class="iconfont">&#xe64b;</i><strong>坐标：</strong>江西</span>
+                                </h3>
+                                <h3 class="xf_mimic_outer">
+                                    <span><i class="iconfont">&#xe8c6;</i><strong>爱好：</strong>割韭菜</span>
+                                </h3>
+                            </div>
+                        </div>
+                        <form action="" method="post" class="menu_1 xf_message xf_mimic_outer">
+                            <div class="xf_nama_QQ">
+                                <input type="text" id="xf_inpname" value="访客" name="inpname" tabindex="1"
+                                    placeholder="你的昵称" autocomplete="off">
+                                <input type="email" id="xf_inpemail" value="" name="inpemail" tabindex="2"
+                                    placeholder="QQ邮箱" autocomplete="off">
+                            </div>
+                            <textarea class="xf_inpmessage" value="" rows="4" cols="50" placeholder="来了就不要留下遗憾！"
+                                autocomplete="off" maxlength="20" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5\.\,\?\。\，\-\——\;\！\!\+\$]/g,'')"></textarea>
+                            <div class="controls">
+                                <div>
+                                    <span class="useCount" id="useCount">0</span>
+                                    <span>/</span>
+                                    <span>20</span>
+                                </div>
+                            </div>
+                            <span class="xf_sryzm">输入验证码：</span>
+                            <input class="xf_verify xf_mimic_internal" type="text" autocomplete="off" maxlength="6"
+                                onkeyup="value=value.replace(/[^\d\.]/g,'')">
+                            <div class="xf_verify_code xf_mimic_outer"></div>
+                            <input class="xf_submit" type="submit" value="提 交">
+                        </form>
+                    </div>
+                </div>
+                <div class="xf_box_right xf_mimic_outer">
+                    <div class="xf_mes_list">
+                        <h3 class="xf_mimic_outer">留言列表</h3>
+                        <ul class="leave">
+
+                        </ul>
+                    </div>
+                    <div class="xf_music_box">
+                        <div class="xf_QQ_wx">
+                            <a data-tip="快来加我的QQ吧！" href="http://wpa.qq.com/msgrd?v=3&uin=1809185784&site=qq&menu=yes"
+                                target="_blank" rel="noopener noreferrer" alt="QQ" target="_blank">
+                                <span class="xf_mimic_outer">
+                                    <img src="assets/images/QQ-pic.png">
+                                </span>
+                            </a>
+                            <a class="my-wx" data-tip="微信也是可以的噢~" href="javascript:;" rel="noopener noreferrer">
+                                <span class="xf_mimic_outer" alt="微信">
+                                    <img src="assets/images/WX-pic.png">
+                                </span>
+                            </a>
+                            <a data-tip="bilibili~" href="https://space.bilibili.com/349762020?spm_id_from=333.1007.0.0"
+                                rel="noopener noreferrer" target="_blank">
+                                <span class="xf_mimic_outer" alt="bilibili">
+                                    <img src="assets/images/bilibili.png">
+                                </span>
+                            </a>
+                        </div>
+                        <div class="xf_mimic_outer" id="music" key="606e5a8824639" api="https://music.xfyun.club">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="xf_Skill xf_mimic_outer technology">
+                <div class="xf_outs">
+                    <h2>Skill/专业技能</h2>
+                    <div class="underscore"><span></span></div>
+                    <ul class="xf_technology xf_mimic_internal">
+                        <li>
+                            <p class="xf_mimic_outer">Photoshop</p>
+                            <div data-tip="LOGO制作,UI设计,广告设计...都可以找我噢!" class="xf_progress xf_mimic_outer">
+                                <div class="xf_mimic_outer" style="width: 90%;"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="xf_mimic_outer">Illustrator</p>
+                            <div data-tip="绘图也很腻害噢!" class="xf_progress xf_mimic_outer">
+                                <div class="xf_mimic_outer" style="width: 70%;"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="xf_mimic_outer">PR/AE</p>
+                            <div data-tip="剪辑特效都可以找我噢!" class="xf_progress xf_mimic_outer">
+                                <div class="xf_mimic_outer" style="width: 66%;"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="xf_mimic_outer">HTML5</p>
+                            <div data-tip="标签语言的使用能力" class="xf_progress xf_mimic_outer">
+                                <div class="xf_mimic_outer" style="width: 80%;"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="xf_mimic_outer">CSS3</p>
+                            <div data-tip="层叠样式表的使用能力" class="xf_progress xf_mimic_outer">
+                                <div class="xf_mimic_outer" style="width: 70%;"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="xf_mimic_outer">JavaScript</p>
+                            <div data-tip="脚本语言的使用能力" class="xf_progress xf_mimic_outer">
+                                <div class="xf_mimic_outer" style="width: 30%;"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="xf_mimic_outer">社交</p>
+                            <div data-tip="患有社交牛逼症!" class="xf_progress xf_mimic_outer">
+                                <div class="xf_mimic_outer" style="width: 95%;"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="xf_mimic_outer">恋爱</p>
+                            <div data-tip="本人单身cpdd" class="xf_progress xf_mimic_outer">
+                                <div class="xf_mimic_outer" style="width: 99%;"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="xf_site xf_mimic_outer site">
+                <div class="xf_outs">
+                    <h2>site/旗下站点</h2>
+                    <div class="underscore"><span></span></div>
+                    <div class="xf_site_bigbox">
+                        <a href="https://www.xfwl.club" target="_blank" rel="noopener noreferrer">小枫网络</a>
+                        <a href="https://music.xfyun.club" target="_blank" rel="noopener noreferrer">h5音乐播放器</a>
+                        <a href="http://wpa.qq.com/msgrd?v=3&uin=1809185784&site=qq&menu=yes" target="_blank" rel="noopener noreferrer">联系小枫</a>
+                        <a href="http://wpa.qq.com/msgrd?v=3&uin=1809185784&site=qq&menu=yes" target="_blank" rel="noopener noreferrer">cpdd</a>
+                    </div>
+                </div>
+            </div>
+            <div class="xf_server_inf">
+                <div class="xf_cpu xf_mimic_outer">
+                    <h3>CPU / 处理器使用率</h3>
+                    <div class="underscore" style="margin: 15px"><span></span></div>
+                    <div class="xf_usage xf_mimic_outer">
+                        <span>30%</span>
+                        <div class="hw_progress xf_mimic_internal">
+                            <div class="xf_mimic_internal" style="width: 30%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="xf_mem xf_mimic_outer">
+                    <h3>MEM / 内存使用率</h3>
+                    <div class="underscore" style="margin: 15px"><span></span></div>
+                    <div class="xf_usage xf_mimic_outer">
+                        <span>50%</span>
+                        <div class="hw_progress xf_mimic_internal">
+                            <div class="xf_mimic_internal" style="width: 50%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="xf_friend xf_mimic_outer">
+                <div class="xf_outs">
+                    <h3>友情链接：</h3>
+                    <span>
+                        <a href="https://www.xfwl.club" target="_blank" data-tip="小枫网络是一家免费资源共享平台。"
+                            rel="noopener noreferrer">
+                            <img src="https://www.xfwl.club/favicon.ico" alt="小枫网络">小枫网络</a>
+                    </span>
+                    <span>
+                        <a href="https://music.xfyun.club" target="_blank" data-tip="小枫音乐播放器是一款功能强大的HTML悬浮播放器。"
+                            rel="noopener noreferrer">
+                            <img src="https://www.xfwl.club/favicon.ico" alt="小枫音乐播放器">小枫音乐播放器</a>
+                    </span>
+                </div>
+            </div>
+        </section>
+        <footer class="xf_mimic_outer">
+            <p>Copyright &copy; 2022 <a href="https://www.xfwl.club" target="_blank" rel="noopener noreferrer">小枫网络</a>
+                版权所有&nbsp;<span>本站已安全运行<b id="xf_time"></b>天</span></p>
+            <p><img src="assets/images/filing.png" alt="备案ico"><a href="http://beian.miit.gov.cn/" target="_blank"
+                    rel="noopener noreferrer">赣ICP备2020011714号</a></p>
+            <!-- 希望大家可以把他留下😊🧡 -->
+            <!-- 开源地址：https://gitee.com/xfwlclub/nitai4 -->
+            <p>开源地址：<a href="https://gitee.com/xfwlclub/nitai4" target="_blank" rel="noopener noreferrer">gitee</a></p>
+        </footer>
+    </main>
+    <div class="wx_picture">
+        <img src="assets/images/wx.jpg" alt="我的微信">
+    </div>
+    <div id="xf_at_night" class="toggle xf_mimic_outer iconfont dark-mode-toggle btn btn-dark p-1" data-tip="切换主题">
+        <span><i id="daytime"></i></span>
+        <span><i id="night"></i></span>
+    </div>
+    <div id="xf_friend_link" class="xf_mimic_outer iconfont" data-tip="添加友链" onclick="my_friend()"><span>&#xe726;</span>
+    </div>
+    <div id="xf_GoTop" class="mytooltip xf_mimic_outer iconfont" data-tip="返回顶部"><span>&#xe62c;</span></div>
+    <script id="xplayer" src="assets/js/player.js"></script>
+    <script src="assets/js/index.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/fireworks.js"></script>
+        <script>
+        swal({
+            title: "此页面为静态页，请到网站底部拿源码！",
+        });
+    </script>
+</body>
+
+</html>

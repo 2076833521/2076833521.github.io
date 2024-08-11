@@ -1,0 +1,87 @@
+<!--
+拟态UI4.0个人主页设计采用GPL3.0开源协议
+博客：www.xfwl.club
+作者：小枫
+QQ：1809185784
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>申请友链-个人引导页</title>
+    <link rel="shortcut icon" href="https://www.xfwl.club/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/font/iconfont.css">
+    <link rel="stylesheet" href="assets/css/friend-1.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/font.css">
+    <script src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://npm.elemecdn.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
+<body>
+    <div class="xf_load"></div>
+    <div class="core">
+        <main class="xf_main firend_mimic_outer">
+            <div class="xf_biaoti">
+                <h1>friend/申请友链</h1>
+                <div class="underscore"><span></span></div>
+            </div>
+            <div class="xf_illustrate">
+                <h3 class="firend_mimic_outer" style="margin-top: 10px;">友情链接规范：</h3>
+                <ol>
+                    <li>添加本站友链或网站已ICP备案优先收录</li>
+                    <li>网站名称：<span>小枫网络</span></li>
+                    <li>网站URL：https://www.xfwl.club</li>
+                    <li>网站ICO：https://www.xfwl.club/favicon.ico<small>( ico是用于展示网站个性的缩略logo标志 )</small></li>
+                    <li>网站介绍：小枫网络是一家免费资源共享平台，专为新手打造的免费共享资源网,来这里璇与你一起访问爱问共享资料平台学习。</li>
+                </ol>
+            </div>
+            <div class="xf_biaodan">
+                <form action="" method="" class="xf_form_data">
+                    <div class="shipei-1">
+                        <input type="text" name="web-name" placeholder="填写网站名称" id="web_name" maxlength="15">
+                        <input type="text" name="web-url" placeholder="填写网站URL" id="web_url" maxlength="70">
+                        <input type="text" name="web-ico" placeholder="填写网站ICO" id="web_ico">
+                        <input type="email" name="web-email" placeholder="填写你的QQ邮箱" id="friend_inpemail" maxlength="50">
+                        <textarea name="web-introduce" rows="5" placeholder="填写网站介绍" id="web_introduce_30" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5\.\,\?\。\，\-\——\;\！\!\+\$]/g,'')" maxlength="30"></textarea>
+                    </div>
+                    <div class="shipei-2" style="text-align: right;">
+                        <div class="controls">
+                            <div>
+                                <span class="useCount" id="useCount">0</span>
+                                <span>/</span>
+                                <span style="color: var(--red);">30</span>
+                            </div>
+                        </div>
+                        <span class="xf_sryzm">输入验证码：</span>
+                        <input class="xf_verify" type="text" autocomplete="off" maxlength="6"
+                            onkeyup="value=value.replace(/[^\d\.]/g,'')">
+                        <div class="xf_verify_code firend_mimic_outer"></div>
+                        <input class="xf_submit" type="submit" value="提 交">
+                    </div>
+                </form>
+            </div>
+        </main>
+        <footer class="firend_mimic_outer">
+            <p>Copyright &copy; 2022 <a href="https://www.xfwl.club" target="_blank" rel="noopener noreferrer">小枫网络</a>
+                版权所有&nbsp;<span>本站已安全运行<b id="xf_time"></b>天</span></p>
+            <p><img src="assets/images/filing.png" alt="备案ico"><a href="http://beian.miit.gov.cn/" target="_blank"
+                    rel="noopener noreferrer">赣ICP备2020011714号</a></p>
+            <!-- 希望大家可以把他留下😊🧡 -->
+            <!-- 开源地址：https://gitee.com/xfwlclub/nitai4 -->
+            <p>开源地址：<a href="https://gitee.com/xfwlclub/nitai4" target="_blank" rel="noopener noreferrer">gitee</a></p>
+        </footer>
+    </div>
+    <script src="assets/js/friend.js"></script>
+    <script src="assets/js/fireworks.js"></script>
+        <script>
+        swal({
+            title: "此页面为静态页，请到网站底部拿源码！",
+        });
+    </script>
+</body>
+
+</html>
