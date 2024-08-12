@@ -108,7 +108,7 @@ verificationCode.addEventListener('blur', function () {
     }
 })
 
-var s1 = '2022-06-18'; 
+var s1 = '2024-08-12'; 
 s1 = new Date(s1.replace(/-/g, "/"));
 s2 = new Date();
 var days = s2.getTime() - s1.getTime();
