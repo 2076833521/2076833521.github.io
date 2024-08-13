@@ -131,12 +131,12 @@ let img = ''
 let ul = document.querySelector('.leave')
 let data = [{
     username: '邪刃',
-    imgSrc: 'https://raw.githubusercontent.com/2076833521/2076833521.github.io/main/assets/images/xf.jpg',
+    imgSrc: 'https://cccimg.com/view.php/c1797ca11ddd6ecfdacd392213408987.jpg',
     comments: '希望，总是平平淡淡，来去迂回，我想要的，一直很简单。'
 },
 {
     username: '寒塘冷月',
-    imgSrc: 'https://raw.githubusercontent.com/2076833521/2076833521.github.io/main/assets/images/yue.jpg',
+    imgSrc: 'https://cccimg.com/view.php/23a440162dc288200725ecde55ed54e5.jpg',
     comments: '如果手机可以跟人类对话，那它一定是个话痨。因为我打开它的应用就是不停地告诉我微博有人让我评论一下她自拍；天气给我报的有阵雨我得提醒我看《明星大侦探5》。它突然不求精神同向它仅发表十四之后状态的排行无从 主加以激烈叮嘱它便开始无限制的叮嘱。'
 }
 ]
