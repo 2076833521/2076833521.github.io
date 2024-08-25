@@ -15,6 +15,8 @@
 	<link rel="stylesheet" href="./static/css/style.css">
 	<link rel="stylesheet" href="./static/css/root.css">
 	<link rel="stylesheet" type="text/css" href="https://lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="//lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script>
+	
 </head>
 
 <body>
@@ -179,7 +181,6 @@
 
 	</div>
 
-<script src="https://lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script>
 <div id="music" key="66c790f5198d5" api="http://xryyb.xmuridt.cn"></div><script id="xplayer" src="http://xryyb.xmuridt.cn/api/PlayerJs/id/66c790f5198d5" ></script>
     
     <!-- waifu-tips.js 依赖 JQuery 库 -->
@@ -211,7 +212,11 @@
         live2d_settings['modelStorage'] = false;         // 不储存模型 ID
         live2d_settings['canCloseLive2d'] = false;       // 隐藏 关闭看板娘 按钮
         live2d_settings['canTurnToHomePage'] = false;    // 隐藏 返回首页 按钮
-        live2d_settings['waifuSize'] = '600x535';        // 看板娘大小
+        live2d_settings['showHitokoto']         = true;         // 显示一言
+        live2d_settings['showF12Status']        = true;         // 显示加载状态
+        live2d_settings['showF12Message']       = true;        // 显示看板娘消息
+        live2d_settings['showWelcomeMessage']   = true;         // 显示进入面页欢迎词
+        live2d_settings['waifuSize'] = '500x435';        // 看板娘大小
         live2d_settings['waifuTipsSize'] = '570x150';    // 提示框大小
         live2d_settings['waifuFontSize'] = '30px';       // 提示框字体
         live2d_settings['waifuToolFont'] = '36px';       // 工具栏字体
