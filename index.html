@@ -34,42 +34,17 @@
                 <p>请 Ctrl+D 收藏本页到浏览器收藏夹回家不迷路</p>
                 <p class="sizes">*如果您记不住本站域名，请收藏该页地址，收藏并分享给好朋友。</p>
             </div>
-            <!-- 在现有的 .release-main glass 容器中添加“更多”按钮 -->
-<div class="release-main glass">
-    <!-- 现有的链接列表 -->
-    <div class="links">
-        <ul>
-            <li><a href="https://xrbk.xmuridt.cn/" target="_blank">邪刃博客</a></li>
-            <li><a href="https://yyzz.sh805.cn/" target="_blank">度盘解析</a></li>
-            <li><a href="http://qq.qun.xmuridt.cn/" target="_blank">加群界面</a></li>
-            <li><a href="http://cxk.xmuridt.cn/" target="_blank">徐坤小游戏</a></li>
-            <li><a href="http://ys.xmuridt.cn/" target="_blank">原神启动!</a></li>
-            <button id="moreButton" class="more-button">更多</button>
-        </ul>
-    </div>
-
-    <!-- 新增的“更多”按钮 -->
-
-    <!-- 新增的模态窗口 -->
-    <div id="moreModal" class="modal">
-        <div class="modal-content glass">
-            <span class="close">&times;</span>
-            <div class="button-container">
-                <!-- 示例引导按钮 -->
-                <a href="https://example.com/1" class="guide-button">
-                    <img src="https://example.com/image1.png" alt="图片1">
-                    <span>按钮1</span>
-                </a>
-                <a href="https://example.com/2" class="guide-button">
-                    <img src="https://example.com/image2.png" alt="图片2">
-                    <span>按钮2</span>
-                </a>
-                <!-- 可以根据需要添加更多按钮 -->
-            </div>
-        </div>
-    </div>
-</div>
-
+            <div class="release-main glass">
+                <div class="links">
+                    <ul>
+                        <li><a href="https://xrbk.xmuridt.cn/" target="_blank">邪刃博客</a></li>
+                        <li><a href="https://yyzz.sh805.cn/" target="_blank">度盘解析</a></li>
+                        <li><a href="http://qq.qun.xmuridt.cn/" target="_blank">加群界面</a></li>
+                        <li><a href="http://cxk.xmuridt.cn/" target="_blank">徐坤小游戏</a></li>
+                        <li><a href="http://ys.xmuridt.cn/" target="_blank">原神启动!</a></li>
+                        <li class="hei"><a href="/" target="_blank">待添加</a></li>
+                    </ul>
+                </div>
                 <div class="enter-maomi">
                     <div class="enter-icon">
                         <div class="icon icon_hand"></div>
@@ -123,33 +98,6 @@
                 localStorage.setItem('announcementShown', 'true');
             });
         });
-        
-        // 获取模态窗口元素
-var modal = document.getElementById("moreModal");
-
-// 获取“更多”按钮
-var moreButton = document.getElementById("moreButton");
-
-// 获取关闭按钮
-var closeButton = document.getElementsByClassName("close")[0];
-
-// 点击“更多”按钮时显示模态窗口
-moreButton.onclick = function() {
-    modal.style.display = "block";
-}
-
-// 点击关闭按钮时隐藏模态窗口
-closeButton.onclick = function() {
-    modal.style.display = "none";
-}
-
-// 点击模态窗口外部时隐藏模态窗口
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-
     </script>
     <!-- 公告脚本结束 -->
 
