@@ -53,7 +53,7 @@ body {
 	justify-items: center;
 	place-items: center;
 	min-height: 95vh;
-	background-color: #e52;
+	background-color: #ffffff;
 	background-image: url("https://img.moehu.org/pic.php?id=sjpic&size=mw1024&cdn=cf");
 	background-attachment: fixed;
 	background-size: cover
@@ -145,7 +145,7 @@ body {
 	transition: all .3s ease;
 	letter-spacing: 2px;
 	font-weight: 700;
-	background: linear-gradient(90deg, #f8922d, #ff2f00, #ffc400, #f8922d);
+	background: linear-gradient(90deg, #DAD8D5, #969595, #E3E3E3, #E1E1E1);
 	background-size: 400%;
 	position: relative;
 	z-index: 1
@@ -161,7 +161,7 @@ body {
 	top: 0;
 	left: 0;
 	z-index: -1;
-	background: linear-gradient(90deg, #f8922d, #ff2f00, #ffc400, #f8922d);
+	background: linear-gradient(90deg, #DAD8D5, #969595, #E3E3E3, #E1E1E1);
 	background-size: 200%;
 	border-radius: 40px;
 	transition: .5s;
@@ -218,12 +218,12 @@ footer {
 	border-radius: 20px;
 	margin: 20px 0;
 	background-color: transparent;
-	border: 1px solid #ffc400
+	border: 1px solid #E000FF
 }
 
 footer p {
 	margin-bottom: 0;
-	color: #856404;
+	color: #E6006C;
 	letter-spacing: 1px;
 	font-size: 16px
 }
@@ -474,4 +474,61 @@ a:visited {
 	background-color: #fff;
 	margin-top: -50px;
 	box-shadow: 0 0 8px 0 rgb(134 134 134/15%)
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.5); /* 背景透明度调高 */
+    backdrop-filter: blur(0px); /* 修改模糊效果 */
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    margin: 20px 0;
+}
+
+/* 群组按钮样式 */
+.group-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.group-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px; /* 圆角 */
+    margin: 10px;
+    padding: 10px;
+    width: calc(50% - 20px); /* 两列布局 */
+    text-decoration: none; /* 去除链接下划线 */
+    color: inherit; /* 继承父元素颜色 */
+    transition: background-color 0.3s, transform 0.3s; /* 添加过渡效果 */
+}
+
+.group-button:hover {
+    background-color: #f0f0f0; /* 悬停时背景颜色变化 */
+    transform: translateY(-2px); /* 悬停时轻微上移 */
+}
+
+.group-button .icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.group-button .icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.group-button span {
+    font-size: 16px;
+    color: #333;
 }
