@@ -536,9 +536,9 @@ a:visited {
 /* 公告样式 */
 .announcement {
     position: fixed;
-    top: 20px;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
     background: rgba(255, 255, 255, 0.9);
     border: 1px solid #ddd;
     border-radius: 10px;
@@ -547,9 +547,6 @@ a:visited {
     z-index: 1000;
     width: 90%;
     max-width: 500px;
-}
-
-.announcement-content {
     text-align: center;
 }
 
@@ -559,6 +556,7 @@ a:visited {
     color: #333;
 }
 
+/* 群组按钮样式 */
 .group-buttons {
     display: flex;
     justify-content: center;
@@ -577,6 +575,8 @@ a:visited {
     color: #fff;
     font-size: 16px;
     transition: background-color 0.3s;
+    flex: 1;
+    max-width: 200px;
 }
 
 .group-button:hover {
@@ -585,4 +585,13 @@ a:visited {
 
 .group-button span {
     margin-left: 5px;
+}
+
+/* 关闭按钮样式 */
+#closeAnnouncement {
+    background-color: #ff4d4d;
+}
+
+#closeAnnouncement:hover {
+    background-color: #e60000;
 }
