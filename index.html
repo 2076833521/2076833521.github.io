@@ -10,6 +10,22 @@
     <link rel="stylesheet" href="style.css" type="text/css" media="all" />
 </head>
 <body>
+    <!-- 公告开始 -->
+    <div id="announcement" class="announcement">
+        <div class="announcement-content">
+            <p>您可点击下方加入群聊，与我们交流自己的想法和反馈问题!</p>
+            <div class="group-buttons">
+                <a href="http://qq.qun.xmuridt.cn/" class="group-button" target="_blank">
+                    <span>加群</span>
+                </a>
+                <button class="group-button" id="closeAnnouncement">
+                    <span>关闭</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- 公告结束 -->
+
     <div class="release">
         <div class="release-body">
             <div class="image"><img src="http://q.qlogo.cn/headimg_dl?dst_uin=1126989240&spec=640&img_type=jpg" alt="邪刃_永久引导页"></div>
@@ -58,8 +74,27 @@
             <p class="footer"> 2024-2025.All Rights Reserved</p>
         </footer>
     </div>
-<script type="text/javascript" src="https://myhkw.cn/player/js/jquery.min.js"></script>
-<script type="text/javascript" id="myhk" src="https://myhkw.cn/api/player/172408813387" key="172408813387" m="1"></script>
-<script src="https://xmuridt.cn/yinghua.js"></script>
+
+    <!-- 公告脚本开始 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 检查localStorage中是否已经有公告显示记录
+            if (!localStorage.getItem('announcementShown')) {
+                // 显示公告
+                document.getElementById('announcement').style.display = 'block';
+                
+                // 当点击关闭按钮时，隐藏公告并记录到localStorage
+                document.getElementById('closeAnnouncement').addEventListener('click', function() {
+                    document.getElementById('announcement').style.display = 'none';
+                    localStorage.setItem('announcementShown', 'true');
+                });
+            }
+        });
+    </script>
+    <!-- 公告脚本结束 -->
+
+    <script type="text/javascript" src="https://myhkw.cn/player/js/jquery.min.js"></script>
+    <script type="text/javascript" id="myhk" src="https://myhkw.cn/api/player/172408813387" key="172408813387" m="1"></script>
+    <script src="https://xmuridt.cn/yinghua.js"></script>
 </body>
 </html>
