@@ -62,7 +62,7 @@
     <!-- 拟态弹窗公告 -->
     <div id="announcement-modal" class="modal">
         <div class="modal-content">
-            <p>加入邪刃聊天群了解更多信息或提出您的想法反馈！</p>
+            <p>加入邪刃聊天群了解更多信息，或提出您的想法反馈！</p>
             <div class="modal-buttons">
                 <a href="http://qq.qun.xmuridt.cn" class="button join-button">加群</a>
                 <button class="button close-button">关闭</button>
@@ -77,10 +77,20 @@
             modal.style.display = "flex";
         };
 
-        // 关闭弹窗
+        // 关闭弹窗并播放音乐
         function closeModal() {
             var modal = document.getElementById("announcement-modal");
+            var music = document.getElementById("myhk");
+            
+            // 关闭弹窗
             modal.style.display = "none";
+            
+            // 播放音乐，如果音乐未播放
+            if (music.paused) {
+                music.play().catch(function(error) {
+                    console.log("播放音乐时出错:", error);
+                });
+            }
         }
 
         // 添加事件监听器到关闭按钮
