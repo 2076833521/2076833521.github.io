@@ -78,17 +78,25 @@
     <!-- 公告脚本开始 -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // 获取公告元素
+            var announcement = document.getElementById('announcement');
+            
             // 检查localStorage中是否已经有公告显示记录
             if (!localStorage.getItem('announcementShown')) {
                 // 显示公告
-                document.getElementById('announcement').style.display = 'block';
-                
-                // 当点击关闭按钮时，隐藏公告并记录到localStorage
-                document.getElementById('closeAnnouncement').addEventListener('click', function() {
-                    document.getElementById('announcement').style.display = 'none';
-                    localStorage.setItem('announcementShown', 'true');
-                });
+                announcement.style.display = 'block';
             }
+
+            // 获取关闭按钮
+            var closeButton = document.getElementById('closeAnnouncement');
+            
+            // 添加点击事件监听器
+            closeButton.addEventListener('click', function() {
+                // 隐藏公告
+                announcement.style.display = 'none';
+                // 记录到localStorage
+                localStorage.setItem('announcementShown', 'true');
+            });
         });
     </script>
     <!-- 公告脚本结束 -->
