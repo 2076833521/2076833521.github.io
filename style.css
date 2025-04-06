@@ -595,3 +595,91 @@ a:visited {
 #closeAnnouncement:hover {
     background-color: #e60000;
 }
+
+/* 悬浮按钮样式 */
+.floating-button {
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    /* 如果需要居中，可以取消注释以下两行 */
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff; /* 背景颜色 */
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.floating-button:hover {
+    background-color: #f0f0f0; /* 悬停时背景颜色变化 */
+    transform: scale(1.05);
+}
+
+/* 按钮文本样式 */
+.floating-button span {
+    font-size: 24px;
+    color: #00c250; /* 文本颜色 */
+    font-weight: bold; /* 加粗 */
+}
+
+/* 弹出窗口样式 */
+.popup-window {
+    position: fixed;
+    bottom: 150px;
+    right: 20px;
+    width: 400px;
+    height: 300px;
+    background-color: #ffffff;
+    border: 2px solid #00c250;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+    z-index: 1001;
+}
+
+.popup-window.active {
+    display: flex;
+}
+
+/* 弹出窗口头部 */
+.popup-header {
+    padding: 10px;
+    background-color: #00c250;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.popup-header span {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.popup-iframe {
+    flex: 1;
+    border: none;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    overflow: hidden;
+}

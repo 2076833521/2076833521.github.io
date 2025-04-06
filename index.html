@@ -10,6 +10,20 @@
     <link rel="stylesheet" href="style.css" type="text/css" media="all" />
 </head>
 <body>
+    <!-- 悬浮按钮 -->
+    <div id="floatingButton" class="floating-button">
+        <span>AI</span>
+    </div>
+
+    <!-- 弹出窗口 -->
+    <div id="popupWindow" class="popup-window">
+        <div class="popup-header">
+            <span>AI 对话</span>
+            <button id="closePopup" class="close-button">&times;</button>
+        </div>
+        <iframe src="http://ai.xmuridt.cn" class="popup-iframe"></iframe>
+    </div>
+
     <!-- 公告开始 -->
     <div id="announcement" class="announcement">
         <div class="announcement-content">
@@ -98,11 +112,58 @@
                 localStorage.setItem('announcementShown', 'true');
             });
         });
+        // 显示小窗口
+    document.addEventListener('DOMContentLoaded', function() {
+    var popupWindow = document.getElementById('popupWindow');
+    var floatingButton = document.getElementById('floatingButton');
+    var closePopup = document.getElementById('closePopup');
+
+    // 显示小窗口
+    floatingButton.addEventListener('click', function() {
+        popupWindow.classList.add('active');
+    });
+
+    // 关闭小窗口
+    closePopup.addEventListener('click', function() {
+        popupWindow.classList.remove('active');
+    });
+
+    // 点击窗口外部关闭小窗口
+    window.addEventListener('click', function(event) {
+        if (!popupWindow.contains(event.target) && !floatingButton.contains(event.target)) {
+            popupWindow.classList.remove('active');
+        }
+    });
+});
     </script>
     <!-- 公告脚本结束 -->
 
     <script type="text/javascript" src="https://myhkw.cn/player/js/jquery.min.js"></script>
     <script type="text/javascript" id="myhk" src="https://myhkw.cn/api/player/172408813387" key="172408813387" m="1"></script>
     <script src="https://xmuridt.cn/yinghua.js"></script>
+
+    <!-- 悬浮按钮弹出窗口脚本 -->
+    <script>
+        $(document).ready(function(){
+            // 打开弹出窗口
+            $('#floatingButton').on('click', function(){
+                $('#popupWindow').fadeIn(300);
+            });
+
+            // 关闭弹出窗口
+            $('#closePopup').on('click', function(){
+                $('#popupWindow').fadeOut(300);
+            });
+
+            // 点击窗口外部关闭弹出窗口
+            $(document).on('click', function(event){
+                if (!$(event.target).closest('#popupWindow, #floatingButton').length) {
+                    if ($('#popupWindow').is(':visible')) {
+                        $('#popupWindow').fadeOut(300);
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
