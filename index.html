@@ -8,31 +8,6 @@
     <meta name="keywords" content="永久引导页,资源网">
     <meta name="description" content="让我们的生活更加精彩有乐趣">
     <link rel="stylesheet" href="style.css" type="text/css" media="all" />
-    <style>
-/* 点击特效样式 */
-.click-effect {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: radial-gradient(circle, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 70%);
-    transform: translate(-50%, -50%) scale(0);
-    pointer-events: none;
-    animation: clickEffect 1s ease-out;
-    border-radius: 50%;
-    opacity: 0;
-}
-
-@keyframes clickEffect {
-    0% {
-        transform: translate(-50%, -50%) scale(0);
-        opacity: 1;
-    }
-    100% {
-        transform: translate(-50%, -50%) scale(3);
-        opacity: 0;
-    }
-}
-    </style>
 </head>
 <body>
     <!-- 公告开始 -->
@@ -67,7 +42,7 @@
                         <li><a href="http://qq.qun.xmuridt.cn/" target="_blank">加群界面</a></li>
                         <li><a href="http://cxk.xmuridt.cn/" target="_blank">徐坤小游戏</a></li>
                         <li><a href="http://ys.xmuridt.cn/" target="_blank">原神启动!</a></li>
-                        <li class="hei"><a href="/" target="_blank">待添加</a></li>
+                        <li><a href="http://alist.xmuridt.cn/" target="_blank">邪刃个人网盘!</a></li>
                     </ul>
                 </div>
                 <div class="enter-maomi">
@@ -100,18 +75,8 @@
         </footer>
     </div>
 
+    <!-- 公告脚本开始 -->
     <script>
-        document.addEventListener('click', function(e) {
-            var clickEffect = document.createElement('div');
-            clickEffect.classList.add('click-effect');
-            clickEffect.style.left = e.clientX + 'px';
-            clickEffect.style.top = e.clientY + 'px';
-            document.body.appendChild(clickEffect);
-            clickEffect.addEventListener('animationend', function() {
-                clickEffect.parentNode.removeChild(clickEffect);
-            });
-        });
-        
         document.addEventListener('DOMContentLoaded', function() {
             // 获取公告元素
             var announcement = document.getElementById('announcement');
@@ -134,6 +99,7 @@
             });
         });
     </script>
+    <!-- 公告脚本结束 -->
 
     <script type="text/javascript" src="https://myhkw.cn/player/js/jquery.min.js"></script>
     <script type="text/javascript" id="myhk" src="https://myhkw.cn/api/player/172408813387" key="172408813387" m="1"></script>
