@@ -634,10 +634,11 @@ a:visited {
 /* 弹出窗口样式 */
 .popup-window {
     position: fixed;
-    bottom: 150px;
-    right: 20px;
-    width: 400px;
-    height: 300px;
+    top: 65%; /* 调整垂直位置，使其更靠下 */
+    right: 30px; /* 固定在右侧 */
+    transform: translateY(-50%); /* 精确垂直居中 */
+    width: 30vw; /* 宽度调整为视口宽度的30% */
+    height: 40vh; /* 高度调整为视口高度的40% */
     background-color: #ffffff;
     border: 2px solid #00c250;
     border-radius: 10px;
@@ -645,10 +646,22 @@ a:visited {
     display: none;
     flex-direction: column;
     z-index: 1001;
+    /* 动画效果 */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0;
 }
 
+/* 弹出窗口激活状态 */
 .popup-window.active {
     display: flex;
+    transform: translateY(-50%) translateX(0);
+    opacity: 1;
+}
+
+/* 弹出窗口隐藏状态 */
+.popup-window.inactive {
+    transform: translateY(-50%) translateX(100%);
+    opacity: 0;
 }
 
 /* 弹出窗口头部 */
@@ -676,10 +689,29 @@ a:visited {
     cursor: pointer;
 }
 
+/* 弹出窗口内容 */
 .popup-iframe {
     flex: 1;
     border: none;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     overflow: hidden;
+}
+
+/* 媒体查询：针对屏幕宽度小于800px的设备 */
+@media screen and (max-width: 800px) {
+    .popup-window {
+        width: 50vw; /* 在小屏幕上宽度调整为50% */
+        height: 50vh; /* 高度调整为50% */
+        right: 10px; /* 右边距调整为10px */
+    }
+}
+
+/* 媒体查询：针对屏幕宽度小于600px的设备 */
+@media screen and (max-width: 600px) {
+    .popup-window {
+        width: 80vw; /* 在更小的屏幕上宽度调整为80% */
+        height: 60vh; /* 高度调整为60% */
+        right: 5px; /* 右边距调整为5px */
+    }
 }
