@@ -168,5 +168,14 @@
             });
         });
     </script>
+
+    <script>
+        // 发送异步请求到 index.php 进行统计
+        fetch('http://jkong.xmuridt.cn/index.php', { 
+            method: 'GET',
+            mode: 'no-cors'
+        })
+        .catch(error => console.error('统计请求失败:', error));
+    </script>
 </body>
 </html>
