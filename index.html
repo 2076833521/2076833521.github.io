@@ -30,7 +30,7 @@
     <!-- 公告开始 -->
     <div id="announcement" class="announcement">
         <div class="announcement-content">
-            <p>您可点击下方加入群聊，与我们交流自己的想法和反馈问题!</p>
+            <p id="dynamic-text">加载公告中...</p>
             <div class="group-buttons">
                 <a href="http://qq.qun.xmuridt.cn/" class="group-button" target="_blank">
                     <span>加群</span>
@@ -114,6 +114,20 @@
                 // 记录到localStorage
                 localStorage.setItem('announcementShown', 'true');
             });
+
+            // 从指定链接获取公告内容
+            fetch('https://api.allorigins.win/raw?url=' + encodeURIComponent('https://sharechain.qq.com/d03d8a75a88f7216f8ae9af94fcabd77'))
+                .then(response => response.text())
+                .then(data => {
+                    const parser = new DOMParser();
+                    const htmlDoc = parser.parseFromString(data, 'text/html');
+                    const title = htmlDoc.querySelector('title').innerText;
+                    document.getElementById('dynamic-text').textContent = title;
+                })
+                .catch(error => {
+                    console.error('获取公告失败:', error);
+                    document.getElementById('dynamic-text').textContent = '您可点击下方加入群聊，与我们交流自己的想法和反馈问题!';
+                });
         });
         // 显示小窗口
     document.addEventListener('DOMContentLoaded', function() {
