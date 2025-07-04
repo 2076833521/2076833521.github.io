@@ -115,33 +115,18 @@
                 localStorage.setItem('announcementShown', 'true');
             });
 
-            // 使用CORS代理解决GitHub Pages跨域问题
-            fetch('https://api.codetabs.com/v1/proxy?quest=https://sharechain.qq.com/d03d8a75a88f7216f8ae9af94fcabd77')
-                .then(response => response.text())
+            // 使用服务器端代理获取公告内容
+            fetch('http://jkong.xmuridt.cn/get_announcement.php')
+                .then(response => response.json())
                 .then(data => {
-                    // 创建临时元素解析HTML
-                    const tempElement = document.createElement('div');
-                    tempElement.innerHTML = data;
-                    
-                    // 查找分享内容元素
-                    const shareContent = tempElement.querySelector('.share-content');
-                    
-                    if (shareContent) {
-                        // 获取纯文本内容
-                        const textContent = shareContent.textContent.trim();
-                        // 限制显示长度（150个字符）
-                        const displayText = textContent.length > 150 
-                            ? textContent.substring(0, 150) + '...' 
-                            : textContent;
-                        
-                        document.getElementById('dynamic-text').textContent = displayText;
+                    if (data.success) {
+                        document.getElementById('dynamic-text').textContent = data.content;
                     } else {
-                        // 如果找不到分享内容，使用默认文本
-                        document.getElementById('dynamic-text').textContent = '您可点击下方加入群聊，与我们交流自己的想法和反馈问题!';
+                        throw new Error(data.message);
                     }
                 })
                 .catch(error => {
-                    console.error('获取公告失败:', error);
+                    console.error('获取公告失败:', error.message);
                     document.getElementById('dynamic-text').textContent = '您可点击下方加入群聊，与我们交流自己的想法和反馈问题!';
                 });
         });
