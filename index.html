@@ -121,8 +121,23 @@
                 .then(data => {
                     const parser = new DOMParser();
                     const htmlDoc = parser.parseFromString(data, 'text/html');
-                    const title = htmlDoc.querySelector('title').innerText;
-                    document.getElementById('dynamic-text').textContent = title;
+                    
+                    // 修复：正确提取分享内容而不是页面标题
+                    const shareContent = htmlDoc.querySelector('.share-content');
+                    
+                    if (shareContent) {
+                        // 提取分享文本内容
+                        const textContent = shareContent.textContent.trim();
+                        // 限制显示长度（150个字符）
+                        const displayText = textContent.length > 150 
+                            ? textContent.substring(0, 150) + '...' 
+                            : textContent;
+                        
+                        document.getElementById('dynamic-text').textContent = displayText;
+                    } else {
+                        // 如果找不到分享内容，使用默认文本
+                        document.getElementById('dynamic-text').textContent = '您可点击下方加入群聊，与我们交流自己的想法和反馈问题!';
+                    }
                 })
                 .catch(error => {
                     console.error('获取公告失败:', error);
