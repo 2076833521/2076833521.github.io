@@ -115,18 +115,19 @@
                 localStorage.setItem('announcementShown', 'true');
             });
 
-            // 从指定链接获取公告内容
-            fetch('https://api.allorigins.win/raw?url=' + encodeURIComponent('https://sharechain.qq.com/d03d8a75a88f7216f8ae9af94fcabd77'))
+            // 使用CORS代理解决GitHub Pages跨域问题
+            fetch('https://api.codetabs.com/v1/proxy?quest=https://sharechain.qq.com/d03d8a75a88f7216f8ae9af94fcabd77')
                 .then(response => response.text())
                 .then(data => {
-                    const parser = new DOMParser();
-                    const htmlDoc = parser.parseFromString(data, 'text/html');
+                    // 创建临时元素解析HTML
+                    const tempElement = document.createElement('div');
+                    tempElement.innerHTML = data;
                     
-                    // 修复：正确提取分享内容而不是页面标题
-                    const shareContent = htmlDoc.querySelector('.share-content');
+                    // 查找分享内容元素
+                    const shareContent = tempElement.querySelector('.share-content');
                     
                     if (shareContent) {
-                        // 提取分享文本内容
+                        // 获取纯文本内容
                         const textContent = shareContent.textContent.trim();
                         // 限制显示长度（150个字符）
                         const displayText = textContent.length > 150 
