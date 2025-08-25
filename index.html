@@ -21,6 +21,46 @@
     <div id="floatingButton" class="floating-button">
         <span>AI</span>
     </div>
+    
+        <!-- 新增：更多链接按钮 -->
+    <div id="moreLinksButton" class="more-links-button">
+        <span>更多</span>
+    </div>
+    
+<!-- 侧滑面板 -->
+<div id="sidePanel" class="side-panel">
+    <div class="panel-header">
+        <h3>网站资源分类</h3>
+        <button class="panel-close" id="closePanel">&times;</button>
+    </div>
+    
+    <!-- 分类导航 -->
+    <div class="panel-categories">
+        <button class="category-btn active" data-category="all">全部</button>
+        <button class="category-btn" data-category="xrdw">主站</button>
+        <button class="category-btn" data-category="entertainment">娱乐</button>
+        <button class="category-btn" data-category="friends">友链</button>
+        <button class="category-btn" data-category="zwdv">暂无</button>
+    </div>
+    
+    <div class="panel-content">
+        <ul class="panel-links">
+            <li data-category="xrdw"><a href="http://xr.app.xmuridt.cn/" target="_blank">软件库</a></li>
+            <li data-category="xrdw"><a href="http://net.xmuridt.cn/" target="_blank">链接转直链</a></li>
+            <li data-category="xrdw"><a href="https://ym.ksjhaoka.com/?s=w6L2sp2A398214" target="_blank">实惠流量卡</a></li>
+            <li data-category="xrdw"><a href="http://payx.xmuridt.cn/" target="_blank">易支付</a></li>
+            <li data-category="xrdw"><a href="http://fk.xmuridt.cn/" target="_blank">邪刃の小店</a></li>
+            <li data-category="entertainment"><a href="http://cxk.xmuridt.cn/" target="_blank">坤山老尸</a></li>
+            <li data-category="friends"><a href="http://shizuku.xmuridt.cn/" target="_blank">懒猫主页</a></li>
+        </ul>
+    </div>
+    <div class="panel-footer">
+        <p>更多精彩资源持续更新中...</p>
+    </div>
+</div>
+    
+    <!-- 新增：遮罩层 -->
+    <div id="panelOverlay" class="panel-overlay"></div>
 
     <!-- 弹出窗口 -->
 <div id="popupWindow" class="popup-window">
@@ -63,9 +103,9 @@
                         <li><a href="http://xr.app.xmuridt.cn/" target="_blank">软件库</a></li>
                         <li><a href="http://net.xmuridt.cn/" target="_blank">链接转直链</a></li>
                         <li><a href="https://ym.ksjhaoka.com/?s=w6L2sp2A398214" target="_blank">实惠流量卡</a></li>
-                        <li><a href="http://cxk.xmuridt.cn/" target="_blank">益智小游戏</a></li>
                         <li><a href="http://payx.xmuridt.cn/" target="_blank">易支付</a></li>
                         <li><a href="http://fk.xmuridt.cn/" target="_blank">邪刃の小店</a></li>
+                        <li><a href="" target="_blank">暂无</a></li>
                     </ul>
                 </div>
                 <div class="tips">
@@ -137,6 +177,64 @@
         }
     });
 });
+
+// 侧滑面板控制
+document.addEventListener('DOMContentLoaded', function() {
+    var moreLinksButton = document.getElementById('moreLinksButton');
+    var sidePanel = document.getElementById('sidePanel');
+    var closePanel = document.getElementById('closePanel');
+    var panelOverlay = document.getElementById('panelOverlay');
+    var categoryButtons = document.querySelectorAll('.category-btn');
+    var panelLinks = document.querySelectorAll('.panel-links li');
+    
+    // 打开侧滑面板
+    moreLinksButton.addEventListener('click', function() {
+        sidePanel.classList.add('active');
+        panelOverlay.classList.add('active');
+    });
+    
+    // 关闭侧滑面板
+    closePanel.addEventListener('click', function() {
+        sidePanel.classList.remove('active');
+        panelOverlay.classList.remove('active');
+    });
+    
+    // 点击遮罩层关闭侧滑面板
+    panelOverlay.addEventListener('click', function() {
+        sidePanel.classList.remove('active');
+        panelOverlay.classList.remove('active');
+    });
+    
+    // 分类筛选功能
+    categoryButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            // 移除所有按钮的active类
+            categoryButtons.forEach(function(btn) {
+                btn.classList.remove('active');
+            });
+            
+            // 给当前点击的按钮添加active类
+            this.classList.add('active');
+            
+            // 获取当前分类
+            var category = this.getAttribute('data-category');
+            
+            // 筛选链接
+            panelLinks.forEach(function(link) {
+                if (category === 'all') {
+                    link.classList.remove('hidden');
+                } else {
+                    if (link.getAttribute('data-category') === category) {
+                        link.classList.remove('hidden');
+                    } else {
+                        link.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    });
+});
+
     </script>
     <!-- 公告脚本结束 -->
     <script type="text/javascript" src="https://myhkw.cn/player/js/jquery.min.js"></script>
