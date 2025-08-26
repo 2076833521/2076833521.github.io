@@ -27,6 +27,35 @@
         <span>更多</span>
     </div>
     
+<!-- 左侧菜单按钮 -->
+<div id="leftMenuButton" class="left-floating-button">
+    <span>主页</span>
+</div>
+
+<!-- 左侧全屏侧滑面板 -->
+<div id="leftSidePanel" class="left-side-panel">
+    <div class="left-panel-header">
+        <button class="left-panel-close" id="closeLeftPanel">&times;</button>
+        <div class="user-avatar">
+            <img src="http://q.qlogo.cn/headimg_dl?dst_uin=1126989240&spec=640&img_type=jpg" alt="用户头像">
+        </div>
+        <div class="user-name">邪刃</div>
+        <div class="user-status">B站是个巨大的赤石天堂！</div>
+    </div>
+    
+    <div class="left-panel-content">
+        <ul class="left-panel-menu">
+            <li><a href="https://qm.qq.com/q/qbJHnw6PgA">QQ</a></li>
+            <li><a href="https://qm.qq.com/q/EW2crlQYco">交流群</a></li>
+            <li><a href="./me.html">关于我</a></li>
+        </ul>
+    </div>
+    
+    <div class="left-panel-footer">
+        <p>邪刃的个人主页 &copy; 2025</p>
+    </div>
+</div>
+    
 <!-- 侧滑面板 -->
 <div id="sidePanel" class="side-panel">
     <div class="panel-header">
@@ -242,6 +271,29 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
+});
+
+// 左侧面板控制
+var leftMenuButton = document.getElementById('leftMenuButton');
+var leftSidePanel = document.getElementById('leftSidePanel');
+var closeLeftPanel = document.getElementById('closeLeftPanel');
+
+// 打开左侧面板
+leftMenuButton.addEventListener('click', function() {
+    leftSidePanel.classList.add('active');
+    panelOverlay.classList.add('active');
+});
+
+// 关闭左侧面板
+closeLeftPanel.addEventListener('click', function() {
+    leftSidePanel.classList.remove('active');
+    panelOverlay.classList.remove('active');
+});
+
+// 点击遮罩层关闭左侧面板
+panelOverlay.addEventListener('click', function() {
+    leftSidePanel.classList.remove('active');
+    panelOverlay.classList.remove('active');
 });
 
     </script>

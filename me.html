@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>关于我 - 邪刃的个人介绍</title>
+    <meta name="keywords" content="邪刃,个人介绍,关于我">
+    <meta name="description" content="邪刃的个人介绍页面，分享我的技能、经历和兴趣爱好">
+    <link rel="stylesheet" href="style.css?v=20240708" type="text/css" media="all" />
+    <!-- 引用 favicon -->
+    <link rel="icon" href="http://q.qlogo.cn/headimg_dl?dst_uin=1126989240&spec=640&img_type=jpg" type="image/jpeg">
+    <link rel="shortcut icon" href="http://q.qlogo.cn/headimg_dl?dst_uin=1126989240&spec=640&img_type=jpg" type="image/jpeg">
+    <style>
+        /* 关于我页面特定样式 */
+        .about-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        
+        .about-section {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        .about-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .about-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 3px solid #00c250;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .about-title {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #333;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .about-title:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #00c250, #008c3a);
+            border-radius: 3px;
+        }
+        
+        .about-subtitle {
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        
+        .about-content {
+            line-height: 1.8;
+            color: #444;
+        }
+        
+        .skill-bars {
+            margin-top: 20px;
+        }
+        
+        .skill-bar {
+            margin-bottom: 15px;
+        }
+        
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        .skill-name {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .skill-percent {
+            color: #00c250;
+            font-weight: bold;
+        }
+        
+        .skill-progress {
+            height: 10px;
+            background: #e9ecef;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .skill-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #00c250, #008c3a);
+            border-radius: 5px;
+            transition: width 1s ease-in-out;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            height: calc(100% - 16px);
+            width: 2px;
+            background: #00c250;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #00c250;
+            border: 2px solid white;
+            box-shadow: 0 0 0 2px #00c250;
+        }
+        
+        .timeline-date {
+            font-size: 14px;
+            color: #00c250;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-content {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid #00c250;
+        }
+        
+        .timeline-title {
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        /* 新增样式：修改杜盘解析项目的文字颜色 */
+        .dupan-item .timeline-content p {
+            color: #003366;
+            font-weight: 500;
+        }
+        
+        /* 响应式设计 */
+        @media screen and (max-width: 768px) {
+            .about-container {
+                padding: 15px;
+                margin: 20px auto;
+            }
+            
+            .about-section {
+                padding: 20px;
+            }
+            
+            .about-title {
+                font-size: 24px;
+            }
+            
+            .about-avatar {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- 关于我页面内容 -->
+    <div class="about-container">
+        <div class="about-section">
+            <div class="about-header">
+                <div class="about-avatar">
+                    <img src="http://q.qlogo.cn/headimg_dl?dst_uin=1126989240&spec=640&img_type=jpg" alt="邪刃头像">
+                </div>
+                <h1 class="about-title">邪刃</h1>
+                <p class="about-subtitle">sleep热爱者 & 网络学习与研究</p>
+            </div>
+            
+            <div class="about-content">
+                <p>大家好，我是邪刃，一名热衷于sleep热爱者和网络技术的爱好者。我喜欢探索各种我觉得有趣的技术和事物。</p>
+                
+                <p>自2020年有一部自己的手机开始，从那时，我开始逐渐接触互联网。从一开始的打游戏刷视频到2022年开始慢慢接触科技与技术，慢慢的喜欢上了网站</p>
+                
+                <p>除了网站与科技，我还想拥有一个自己的大家互相聊天快乐的群聊。如今，群聊已经实现了，但是我觉得时间还不够....</p>
+                
+                <p>我也希望我所做的东西能给更多人带来快乐与便捷，但是我始终走在凹凸不堪的路面上，我的所做的，无法得到回应....</p>
+                
+                <p>我的座右铭是："不问回响，但耕星野；虽长夜漫，吾往如初。"</p>
+            </div>
+        </div>
+        
+        <div class="about-section">
+            <h2 class="about-title">我的技能</h2>
+            
+            <div class="skill-bars">
+                <div class="skill-bar">
+                    <div class="skill-info">
+                        <span class="skill-name">game</span>
+                        <span class="skill-percent">70%</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-progress-bar" style="width: 90%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-bar">
+                    <div class="skill-info">
+                        <span class="skill-name">sleep</span>
+                        <span class="skill-percent">60%</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-progress-bar" style="width: 85%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-bar">
+                    <div class="skill-info">
+                        <span class="skill-name">刷视频</span>
+                        <span class="skill-percent">90%</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-progress-bar" style="width: 80%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-bar">
+                    <div class="skill-info">
+                        <span class="skill-name">music</span>
+                        <span class="skill-percent">75%</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-progress-bar" style="width: 75%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-bar">
+                    <div class="skill-info">
+                        <span class="skill-name">摸鱼</span>
+                        <span class="skill-percent">100%</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-progress-bar" style="width: 70%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="about-section">
+            <h2 class="about-title">我的经历</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item dupan-item">
+                    <div class="timeline-date">2022 - 至今</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">建立杜盘解析</h3>
+                        <p>我在2024年5月某日创建的杜盘解析网站，2024年5月5日创建群聊，也就是梦开始的地方，然后在B站发视频，认识到了大家，拥有了自己的群聊，解析大约在2025已经宣布暂停服务....</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item dupan-item">
+                    <div class="timeline-date">2020 - 2022</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">我的命运齿轮开始转动</h3>
+                        <p>从一开始的打游戏刷视频到2022年开始慢慢接触科技与技术，我在2022年认识了懒猫，开始接触gg修改器...模块一系列开始初步认识网络</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item dupan-item">
+                    <div class="timeline-date">2005 - 2020</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">遗憾的往事</h3>
+                        <p>在这个时间段之前，我从来没有真正的拥有自己的手机，无法了解网络，只有偶尔能玩到父母的手机，那时因为很稀奇，一直用来打游戏了。但是这一年我在初中毕业时，也拥有了属于自己的手机！</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // 技能条动画
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                var skillBars = document.querySelectorAll('.skill-progress-bar');
+                skillBars.forEach(function(bar) {
+                    var width = bar.style.width;
+                    bar.style.width = '0';
+                    setTimeout(function() {
+                        bar.style.width = width;
+                    }, 100);
+                });
+            }, 500);
+        });
+    </script>
+</body>
+</html>"
