@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>支持我 - 邪刃的赞赏码</title>
+    <link rel="stylesheet" href="style.css?v=20240708" type="text/css" media="all" />
+    <link rel="icon" href="http://q.qlogo.cn/headimg_dl?dst_uin=1126989240&spec=640&img_type=jpg" type="image/jpeg">
+    <style>
+        /* 赞赏页面特定样式 */
+        .donation-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        
+        .donation-section {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            text-align: center;
+        }
+        
+        .donation-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .donation-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 3px solid #00c250;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .donation-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .donation-title {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #333;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .donation-title:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #00c250, #008c3a);
+            border-radius: 3px;
+        }
+        
+        .donation-subtitle {
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        
+        .donation-content {
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+        }
+        
+        /* 赞赏码区域 */
+        .donation-codes {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        
+        .donation-item {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            max-width: 280px;
+            text-align: center;
+        }
+        
+        .donation-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .donation-item img {
+            width: 200px;
+            height: 200px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #eee;
+        }
+        
+        .donation-item p {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .donation-item .hint {
+            font-size: 14px;
+            color: #666;
+            margin-top: 10px;
+        }
+        
+        .thank-you {
+            margin-top: 40px;
+            font-style: italic;
+            color: #00c250;
+            font-weight: 500;
+        }
+        
+        /* 响应式设计 */
+        @media screen and (max-width: 768px) {
+            .donation-container {
+                padding: 15px;
+                margin: 20px auto;
+            }
+            
+            .donation-section {
+                padding: 20px;
+            }
+            
+            .donation-title {
+                font-size: 24px;
+            }
+            
+            .donation-avatar {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .donation-codes {
+                gap: 20px;
+            }
+            
+            .donation-item {
+                max-width: 100%;
+            }
+            
+            .donation-item img {
+                width: 180px;
+                height: 180px;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .donation-codes {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 赞赏码页面内容 -->
+    <div class="donation-container">
+        <div class="donation-section">
+            <div class="donation-header">
+                <div class="donation-avatar">
+                    <img src="http://q.qlogo.cn/headimg_dl?dst_uin=1126989240&spec=640&img_type=jpg" alt="邪刃头像">
+                </div>
+                <h1 class="donation-title">支持邪刃</h1>
+                <p class="donation-subtitle">感谢您的支持与鼓励</p>
+            </div>
+            
+            <div class="donation-content">
+                <p>以前我都是自费来做这些，但是经费有限，所以就开放了这个页面，所有收到的支持将用于直链解析、服务器维护，以便我能分享更多有价值的内容。</p>
+                
+                <p>如果您喜欢我做的这些，或者我的项目对您有所帮助，欢迎通过以下方式支持我。您的每一份支持都是我持续创作和分享的动力。</p>
+            </div>
+            
+            <div class="donation-codes">
+                <div class="donation-item">
+                    <img src="https://xmuridt.cn/微信赞赏码.png" alt="微信赞赏码">
+                    <p>微信赞赏</p>
+                    <div class="hint">打开微信扫一扫</div>
+                </div>
+                
+                <div class="donation-item">
+                    <img src="https://xmuridt.cn/支付宝赞赏码.jpg" alt="支付宝赞赏码">
+                    <p>支付宝赞赏</p>
+                    <div class="hint">打开支付宝扫一扫</div>
+                </div>
+            </div>
+            
+            <p class="thank-you">感谢您的支持！❤️</p>
+        </div>
+        
+        <div class="donation-section">
+            <h2 class="donation-title">支持者名单</h2>
+            <div class="donation-content">
+                <p>特别感谢以下朋友的支持（按时间顺序）：</p>
+                <ul style="list-style: none; padding: 0; text-align: left; max-width: 400px; margin: 0 auto;">
+                    <li style="padding: 8px 0; border-bottom: 1px dashed #eee;">热心网友 *华 (2024.06.15)</li>
+                    <li style="padding: 8px 0; border-bottom: 1px dashed #eee;">匿名支持者 (2024.06.10)</li>
+                    <li style="padding: 8px 0; border-bottom: 1px dashed #eee;">星**空 (2024.06.05)</li>
+                    <li style="padding: 8px 0; border-bottom: 1px dashed #eee;">梦*开始的地方 (2024.05.28)</li>
+                    <li style="padding: 8px 0;">更多支持者...</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // 页面加载动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const donationItems = document.querySelectorAll('.donation-item');
+            donationItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, 300 + index * 200);
+            });
+        });
+    </script>
+</body>
+</html>
