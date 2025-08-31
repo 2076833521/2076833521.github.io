@@ -17,19 +17,22 @@
             font-family: 'Microsoft Yahei', 'Hiragino Sans GB', 'Helvetica Neue', Helvetica, Arial, sans-serif;
             font-size: 14px;
             color: #333;
-            background-color: #f8f9fa;
-            display: flex;
-            justify-content: center;
+            display: grid;
             align-items: center;
-            min-height: 100vh;
+            justify-items: center;
+            place-items: center;
+            min-height: 95vh;
+            background-color: #ffffff;
+            background-image: url("https://img.moehu.org/pic.php?id=sjpic&size=mw1024&cdn=cf");
+            background-attachment: fixed;
+            background-size: cover;
             padding: 20px;
-            background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
         }
 
         .container {
             width: 100%;
             max-width: 1000px;
-            margin: 0 auto;
+            margin: 40px auto;
         }
 
         .header {
@@ -45,6 +48,7 @@
             border: 3px solid #00c250;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background: #fff;
         }
 
         .avatar img {
@@ -56,9 +60,10 @@
         h1 {
             font-size: 32px;
             margin-bottom: 10px;
-            color: #333;
+            color: #fff;
             position: relative;
             display: inline-block;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
         h1:after {
@@ -73,16 +78,17 @@
         }
 
         .subtitle {
-            color: #666;
+            color: #e6ffe6;
             font-size: 18px;
             margin-bottom: 20px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
         }
 
         /* 卡片样式 */
         .card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
             border-radius: 15px;
             padding: 30px;
             margin-bottom: 30px;
@@ -304,9 +310,10 @@
         
         <div class="card">
             <div class="intro">
-                <p>以前我都是自费来做这些，但是经费有限，所以就开放了这个页面，所有收到的支持将用于直链解析、服务器维护，以便我能分享更多有价值的内容。</p>
+                <p>  以前我都是自费来做这些，但是经费有限，所以就开放了这个页面，所有收到的支持将用于直链解析、服务器维护，以便我能分享更多有价值的内容。</p>
                 
-                <p>如果您喜欢我做的这些，或者我的项目对您有所帮助，欢迎通过以下方式支持我。您的每一份支持都是我持续创作和分享的动力。</p>
+                <p>  如果您喜欢我做的这些，或者我的项目对您有所帮助，欢迎通过以下方式支持我。您的每一份支持都是我持续创作和分享的动力。</p>
+                                <p>  直链解析(用来支持1G以上的费用):123云盘首月9r，后续续费15r每月，小飞机网盘每月9r。服务器费用每月108r(10月到期可能会换个便宜一点的服务器)</p>
             </div>
             
             <div class="donation-codes">
