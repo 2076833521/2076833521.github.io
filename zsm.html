@@ -84,16 +84,16 @@
             text-shadow: 0 1px 3px rgba(0,0,0,0.2);
         }
 
-        /* 卡片样式 */
+        /* 卡片样式 - 调整为与之前相同的玻璃拟态效果 */
         .card {
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border-radius: 15px;
             padding: 30px;
             margin-bottom: 30px;
             box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         .intro {
@@ -120,7 +120,7 @@
 
         .donation-item {
             flex: 1;
-            background: white;
+            background: rgba(255, 255, 255, 0.7);
             border-radius: 12px;
             padding: 25px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
@@ -129,11 +129,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.4);
         }
 
         .donation-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 0.8);
         }
 
         .donation-item img {
@@ -161,7 +163,7 @@
         .note {
             margin-top: 20px;
             padding: 12px;
-            background-color: #f8f9fa;
+            background-color: rgba(248, 249, 250, 0.7);
             border-radius: 8px;
             border-left: 4px solid #00c250;
             text-align: center;
@@ -210,13 +212,14 @@
             align-items: center;
             padding: 15px;
             margin-bottom: 15px;
-            background: #f9f9f9;
+            background: rgba(249, 249, 249, 0.7);
             border-radius: 10px;
             transition: background-color 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         .supporter-item:hover {
-            background: #f0f0f0;
+            background: rgba(240, 240, 240, 0.8);
         }
 
         .supporter-avatar {
