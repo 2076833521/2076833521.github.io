@@ -1,0 +1,58 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>懒猫纪念碑</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <canvas id="weatherCanvas"></canvas>
+
+    <div class="memorial-wall">
+        <div class="tombstone" onclick="this.classList.toggle('flipped')">
+            <div class="epitaph">
+                <h2>沉痛悼念</h2>
+                <p>2025-4-23</p>
+                <!-- 替换下面src中的图片链接 -->
+                <img src="https://dl.img.timecdn.cn/2025/04/23/937A6A3FE7FCF576409748E17D9426AE_0.gif" 
+                     alt="Pixel art ghost wearing sunglasses (transparent)" 
+                     style="width: 150px; margin: 10px auto; display: block;">
+                <p>"永垂不朽的周末时光"</p>
+            </div>
+        </div>
+
+        <div class="candle-group">
+            <div class="candle" onclick="blowOutCandle(this)">
+                <div class="flame"></div>
+            </div>
+            <div class="candle" onclick="blowOutCandle(this)">
+                <div class="flame"></div>
+            </div>
+        </div>
+
+        <div class="memorial-items">
+            <div class="memorial-item">
+                <h3>生前成就</h3>
+                <ul>
+                    <li>连续早睡冠军 (2022-2025)</li>
+                    <li>手机电量守护者</li>
+                    <li>年度最佳拖延症</li>
+                </ul>
+            </div>
+            <div class="memorial-item">
+                <h3>纪念留言板</h3>
+                <textarea placeholder="请在此输入悼词..." 
+                          style="width:100%; height:80px; background: rgba(0,0,0,0.3); 
+                          border: 1px solid #555; color: white; padding: 5px;"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+<script src="https://cdn.staticfile.net/jquery/3.5.1/jquery.min.js"></script>
+<div id="music" key="680b274c12215" api="https://y.cenguigui.cn/"></div><script id="xplayer" src="https://y.cenguigui.cn/Static/player4/js/player.js" ></script>
+</body>
+</html>
