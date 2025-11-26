@@ -11,122 +11,135 @@
     <title>XR引导页，收藏我回家不迷路！</title>
     <meta name="keywords" content="引导页,资源网">
     <meta name="description" content="让我们的生活更加精彩有乐趣">
-    <link rel="stylesheet" href="style.css?v=20240708" type="text/css" media="all" />
+    
+    <!-- 通过PHP服务器引用CSS文件 -->
+    <link href="http://css.js.xrvi.top/1/?file=styles" rel="stylesheet" type="text/css" media="all" />
+    
     <!-- 引用 favicon -->
     <link rel="icon" href="http://q.qlogo.cn/headimg_dl?dst_uin=1126989240&spec=640&img_type=jpg" type="image/jpeg">
     <link rel="shortcut icon" href="http://q.qlogo.cn/headimg_dl?dst_uin=1126989240&spec=640&img_type=jpg" type="image/jpeg">
 </head>
 <body>
+    <!-- 动态背景 -->
+    <div class="dynamic-bg" id="dynamicBg"></div>
+    
+    <!-- 头部统计信息 -->
+    <div class="header-bg">
+        <div class="logo-container">
+            <div class="logo-xie">Xie</div>
+            <div class="logo-ren">Ren</div>
+            <div class="logo-xr">XR</div>
+        </div>
+    </div>
+
     <!-- 悬浮按钮 -->
     <div id="floatingButton" class="floating-button">
         <span>zl</span>
     </div>
     
-        <!-- 更多链接按钮 -->
+    <!-- 更多链接按钮 -->
     <div id="moreLinksButton" class="more-links-button">
         <span>更多</span>
     </div>
     
-<!-- 左侧菜单按钮 -->
-<div id="leftMenuButton" class="left-floating-button">
-    <span>主页</span>
-</div>
+    <!-- 左侧菜单按钮 -->
+    <div id="leftMenuButton" class="left-floating-button">
+        <span>主页</span>
+    </div>
 
-<!-- 左侧全屏侧滑面板 -->
-<div id="leftSidePanel" class="left-side-panel">
-    <div class="left-panel-header">
-        <button class="left-panel-close" id="closeLeftPanel">&times;</button>
-        <div class="user-avatar">
-            <img src="http://q.qlogo.cn/headimg_dl?dst_uin=1126989240&spec=640&img_type=jpg" alt="用户头像">
+    <!-- 左侧全屏侧滑面板 -->
+    <div id="leftSidePanel" class="left-side-panel">
+        <div class="left-panel-header">
+            <button class="left-panel-close" id="closeLeftPanel">&times;</button>
+            <div class="user-avatar">
+                <img src="http://q.qlogo.cn/headimg_dl?dst_uin=1126989240&spec=640&img_type=jpg" alt="用户头像">
+            </div>
+            <div class="user-name">XR.</div>
+            <div class="user-status">B站是个巨大的赤石天堂！</div>
         </div>
-        <div class="user-name">XR.</div>
-        <div class="user-status">B站是个巨大的赤石天堂！</div>
+        
+        <div class="left-panel-content">
+            <ul class="left-panel-menu">
+                <li><a href="https://qm.qq.com/q/qbJHnw6PgA">联系我</a></li>
+                <li><a href="./me.html">关于我</a></li>
+                <li><a href="./zsm.html">赞赏我</a></li>
+            </ul>
+        </div>
+        
+        <div class="left-panel-footer">
+            <p>XR的个人主页 &copy; 2025</p>
+        </div>
     </div>
     
-    <div class="left-panel-content">
-        <ul class="left-panel-menu">
-            <li><a href="https://qm.qq.com/q/qbJHnw6PgA">联系我</a></li>
-            <li><a href="https://qm.qq.com/q/EW2crlQYco">交流群</a></li>
-            <li><a href="./me.html">关于我</a></li>
-            <li><a href="./zsm.html">赞赏我</a></li>
-        </ul>
+    <!-- 侧滑面板 -->
+    <div id="sidePanel" class="side-panel">
+        <div class="panel-header">
+            <h3>网站资源分类</h3>
+            <button class="panel-close" id="closePanel">&times;</button>
+        </div>
+        
+        <!-- 分类导航 -->
+        <div class="panel-categories">
+            <button class="category-btn active" data-category="all">全部</button>
+            <button class="category-btn" data-category="xrdw">主站</button>
+            <button class="category-btn" data-category="entertainment">娱乐</button>
+            <button class="category-btn" data-category="friends">友链</button>
+            <button class="category-btn" data-category="zwdv">API</button>
+        </div>
+        
+        <div class="panel-content">
+            <ul class="panel-links">
+                <li data-category="xrdw"><a href="http://net.xrvi.top/" target="_blank">链接转直链</a></li>
+                <li data-category="xrdw"><a href="https://ym.ksjhaoka.com/?s=42JsRfp0569007" target="_blank">实惠流量卡</a></li>
+                <li data-category="entertainment"><a href="./to/jfzz" target="_blank">见缝插针</a></li>
+                <li data-category="entertainment"><a href="./to/mikutap" target="_blank">Mikutap</a></li>
+                <li data-category="friends"><a href="to/shizuku" target="_blank">懒猫主页</a></li>
+                <li data-category="friends"><a href="to/lmjlb" target="_blank">懒猫记念牌</a></li>
+                <li data-category="xrdw"><a href="http://jangkong.xrvi.top/monitor.html" target="_blank">邪刃引导页监控</a></li>
+                <li data-category="entertainment"><a href="./to/gtl" target="_blank">盖塔楼</a></li>
+                <li data-category="entertainment"><a href="./to/jfzz" target="_blank">见缝插针</a></li>
+                <li data-category="entertainment"><a href="./to/cxkttl" target="_blank">菜虚鲲跳跳乐</a></li>
+                <li data-category="entertainment"><a href="./to/sdlrgsy" target="_blank">圣诞老人过悬崖</a></li>
+                <li data-category="xrdw"><a href="http://tuzu.xrvi.top" target="_blank">图种工具</a></li>
+                <li data-category="zwdv"><a href="http://qs.java.xrvi.top/wyyx/doc.php" target="_blank">网易云全功能接口</a></li>
+            </ul>
+        </div>
+        <div class="panel-footer">
+            <p>更多精彩资源持续更新中...</p>
+        </div>
     </div>
-    
-    <div class="left-panel-footer">
-        <p>XR的个人主页 &copy; 2025</p>
-    </div>
-</div>
-    
-<!-- 侧滑面板 -->
-<div id="sidePanel" class="side-panel">
-    <div class="panel-header">
-        <h3>网站资源分类</h3>
-        <button class="panel-close" id="closePanel">&times;</button>
-    </div>
-    
-    <!-- 分类导航 -->
-    <div class="panel-categories">
-        <button class="category-btn active" data-category="all">全部</button>
-        <button class="category-btn" data-category="xrdw">主站</button>
-        <button class="category-btn" data-category="entertainment">娱乐</button>
-        <button class="category-btn" data-category="friends">友链</button>
-        <button class="category-btn" data-category="zwdv">API</button>
-    </div>
-    
-    <div class="panel-content">
-        <ul class="panel-links">
-            <li data-category="xrdw"><a href="http://net.xrvi.top/" target="_blank">链接转直链</a></li>
-            <li data-category="xrdw"><a href="https://ym.ksjhaoka.com/?s=42JsRfp0569007" target="_blank">实惠流量卡</a></li>
-            <li data-category="entertainment"><a href="./to/jfzz" target="_blank">见缝插针</a></li>
-            <li data-category="entertainment"><a href="./to/mikutap" target="_blank">Mikutap</a></li>
-            <li data-category="friends"><a href="to/shizuku" target="_blank">懒猫主页</a></li>
-            <li data-category="friends"><a href="to/lmjlb" target="_blank">懒猫记念牌</a></li>
-            <li data-category="xrdw"><a href="http://jangkong.xrvi.top/monitor.html" target="_blank">邪刃引导页监控</a></li>
-            <li data-category="entertainment"><a href="./to/gtl" target="_blank">盖塔楼</a></li>
-            <li data-category="entertainment"><a href="./to/jfzz" target="_blank">见缝插针</a></li>
-            <li data-category="entertainment"><a href="./to/cxkttl" target="_blank">菜虚鲲跳跳乐</a></li>
-            <li data-category="entertainment"><a href="./to/sdlrgsy" target="_blank">圣诞老人过悬崖</a></li>
-            <li data-category="xrdw"><a href="http://tuzu.xrvi.top" target="_blank">图种工具</a></li>
-            <li data-category="zwdv"><a href="http://qs.java.xrvi.top/wyyx/doc.php" target="_blank">网易云全功能接口</a></li>
-            
-        </ul>
-    </div>
-    <div class="panel-footer">
-        <p>更多精彩资源持续更新中...</p>
-    </div>
-</div>
     
     <!-- 遮罩层 -->
     <div id="panelOverlay" class="panel-overlay"></div>
 
     <!-- 弹出窗口 -->
-<div id="popupWindow" class="popup-window">
-    <div class="popup-header">
-        <span>直链工具</span>
-        <button id="closePopup" class="close-button">&times;</button>
+    <div id="popupWindow" class="popup-window">
+        <div class="popup-header">
+            <span>直链工具</span>
+            <button id="closePopup" class="close-button">&times;</button>
+        </div>
+        <iframe src="http://net.xrvi.top" class="popup-iframe"></iframe>
     </div>
-    <iframe src="http://net.xrvi.top" class="popup-iframe"></iframe>
-</div>
 
-<!-- 公告开始 -->
-<div id="announcement" class="announcement">
-    <div class="announcement-content">
-        <p>因为我从始至终都是想做自己想做的，本来这个群聊一开始就想着解散的。<br>
-        一直在考虑，考虑了很久，主要还是因为我舍不得了，但是就在2025年11月25日傍晚时，因为有人说我天天炸撤离点的什么的
-        <br>结果真的有很多人说我，我不知道是玩笑还是什么，反正我很难受，我受不了这个打击，我也不想踢谁，为了所谓的公平，和以前的考虑就此解散吧<br>
-        就让群聊成为过去式吧  .</p>
-        
-        <div class="group-buttons">
-            <a href="./me.html" class="group-button" target="_blank">
-                日志
-            </a>
-            <button class="group-button" id="closeAnnouncement">
-                关闭
-            </button>
+    <!-- 公告开始 -->
+    <div id="announcement" class="announcement">
+        <div class="announcement-content">
+            <p>因为我从始至终都是想做自己想做的，本来这个群聊一开始就想着解散的。<br>
+            一直在考虑，考虑了很久，主要还是因为我舍不得了，但是就在2025年11月25日傍晚时，因为有人说我天天炸撤离点的什么的
+            <br>结果真的有很多人说我，我不知道是玩笑还是什么，反正我很难受，我受不了这个打击，我也不想踢谁，为了所谓的公平，和以前的考虑就此解散吧<br>
+            就让群聊成为过去式吧  .</p>
+            
+            <div class="group-buttons">
+                <a href="./me.html" class="group-button" target="_blank">
+                    日志
+                </a>
+                <button class="group-button" id="closeAnnouncement">
+                    关闭
+                </button>
+            </div>
         </div>
     </div>
-</div>
-<!-- 公告结束 -->
+    <!-- 公告结束 -->
 
     <div class="release">
         <div class="release-body">
@@ -149,191 +162,29 @@
                 </div>
                 <div class="tips">
                     <p>
-                        <font color="red">收藏本站地址：<font color="blue"><a href="index.html">https://xrvi.top</a>
+                        <font color="#2196F3">收藏本站地址：<font color="#2196F3"><a href="index.html">https://xrvi.top</a>
                             </font>，防止失联！</font>
                     </p>
                     <p>
                         <b>网站域名可能会更新，防止网站打不开</b><br>
-                        <b>请务必加群</b>
                     </p>
                 </div>
             </div>
         </div>
         <footer>
             <h2>
-                <font color="red">邪刃</font>
+                邪刃
             </h2>
             <p class="footer"> 2024-2025.All Rights Reserved</p>
         </footer>
     </div>
 
-    <!-- 公告脚本开始 -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // 获取公告元素
-            var announcement = document.getElementById('announcement');
-            
-            // 检查localStorage中是否已经有公告显示记录
-            if (!localStorage.getItem('announcementShown')) {
-                // 显示公告
-                announcement.style.display = 'block';
-            }
-
-            // 获取关闭按钮
-            var closeButton = document.getElementById('closeAnnouncement');
-            
-            // 添加点击事件监听器
-            closeButton.addEventListener('click', function() {
-                // 隐藏公告
-                announcement.style.display = 'none';
-                // 记录到localStorage
-                localStorage.setItem('announcementShown', 'true');
-            });
-        });
-        // 显示小窗口
-    document.addEventListener('DOMContentLoaded', function() {
-    var popupWindow = document.getElementById('popupWindow');
-    var floatingButton = document.getElementById('floatingButton');
-    var closePopup = document.getElementById('closePopup');
-
-    // 显示小窗口
-    floatingButton.addEventListener('click', function() {
-        popupWindow.classList.add('active');
-        popupWindow.classList.remove('inactive');
-    });
-
-    // 关闭小窗口
-    closePopup.addEventListener('click', function() {
-        popupWindow.classList.remove('active');
-        popupWindow.classList.add('inactive');
-    });
-
-    // 点击窗口外部关闭小窗口
-    window.addEventListener('click', function(event) {
-        if (!popupWindow.contains(event.target) && !floatingButton.contains(event.target)) {
-            popupWindow.classList.remove('active');
-            popupWindow.classList.add('inactive');
-        }
-    });
-});
-
-// 侧滑面板控制
-document.addEventListener('DOMContentLoaded', function() {
-    var moreLinksButton = document.getElementById('moreLinksButton');
-    var sidePanel = document.getElementById('sidePanel');
-    var closePanel = document.getElementById('closePanel');
-    var panelOverlay = document.getElementById('panelOverlay');
-    var categoryButtons = document.querySelectorAll('.category-btn');
-    var panelLinks = document.querySelectorAll('.panel-links li');
-    
-    // 打开侧滑面板
-    moreLinksButton.addEventListener('click', function() {
-        sidePanel.classList.add('active');
-        panelOverlay.classList.add('active');
-    });
-    
-    // 关闭侧滑面板
-    closePanel.addEventListener('click', function() {
-        sidePanel.classList.remove('active');
-        panelOverlay.classList.remove('active');
-    });
-    
-    // 点击遮罩层关闭侧滑面板
-    panelOverlay.addEventListener('click', function() {
-        sidePanel.classList.remove('active');
-        panelOverlay.classList.remove('active');
-    });
-    
-    // 分类筛选功能
-    categoryButtons.forEach(function(button) {
-        button.addEventListener('click', function() {
-            // 移除所有按钮的active类
-            categoryButtons.forEach(function(btn) {
-                btn.classList.remove('active');
-            });
-            
-            // 给当前点击的按钮添加active类
-            this.classList.add('active');
-            
-            // 获取当前分类
-            var category = this.getAttribute('data-category');
-            
-            // 筛选链接
-            panelLinks.forEach(function(link) {
-                if (category === 'all') {
-                    link.classList.remove('hidden');
-                } else {
-                    if (link.getAttribute('data-category') === category) {
-                        link.classList.remove('hidden');
-                    } else {
-                        link.classList.add('hidden');
-                    }
-                }
-            });
-        });
-    });
-});
-
-// 左侧面板控制
-var leftMenuButton = document.getElementById('leftMenuButton');
-var leftSidePanel = document.getElementById('leftSidePanel');
-var closeLeftPanel = document.getElementById('closeLeftPanel');
-
-// 打开左侧面板
-leftMenuButton.addEventListener('click', function() {
-    leftSidePanel.classList.add('active');
-    panelOverlay.classList.add('active');
-});
-
-// 关闭左侧面板
-closeLeftPanel.addEventListener('click', function() {
-    leftSidePanel.classList.remove('active');
-    panelOverlay.classList.remove('active');
-});
-
-// 点击遮罩层关闭左侧面板
-panelOverlay.addEventListener('click', function() {
-    leftSidePanel.classList.remove('active');
-    panelOverlay.classList.remove('active');
-});
-
-    </script>
-    <!-- 公告脚本结束 -->
+    <!-- 外部脚本 -->
     <script type="text/javascript" src="https://myhkw.cn/player/js/jquery.min.js"></script>
     <script type="text/javascript" id="myhk" src="https://myhkw.cn/api/player/172408813387" key="172408813387" m="1"></script>
-    <script src="https://xieren.xyz/yinghua.js?v=20240708"></script>
+    <script src="https://xrvi.top/yinghua.js"></script>
 
-    <!-- 悬浮按钮弹出窗口脚本 -->
-    <script>
-        $(document).ready(function(){
-            // 打开弹出窗口
-            $('#floatingButton').on('click', function(){
-                $('#popupWindow').fadeIn(300);
-            });
-
-            // 关闭弹出窗口
-            $('#closePopup').on('click', function(){
-                $('#popupWindow').fadeOut(300);
-            });
-
-            // 点击窗口外部关闭弹出窗口
-            $(document).on('click', function(event){
-                if (!$(event.target).closest('#popupWindow, #floatingButton').length) {
-                    if ($('#popupWindow').is(':visible')) {
-                        $('#popupWindow').fadeOut(300);
-                    }
-                }
-            });
-        });
-    </script>
-
-    <script>
-        // 发送异步请求到 index.php 进行统计
-        fetch('http://jkong.xieren.xyz/index.php', { 
-            method: 'GET',
-            mode: 'no-cors'
-        })
-        .catch(error => console.error('统计请求失败:', error));
-    </script>
+    <!-- 通过PHP服务器引用JavaScript文件 -->
+    <script src="http://css.js.xrvi.top/1/?file=app"></script>
 </body>
 </html>
