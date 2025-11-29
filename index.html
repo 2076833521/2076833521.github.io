@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- 自动重定向：HTTPS -> HTTP -->
+    <script>
+        // 如果当前是HTTPS访问，自动重定向到HTTP
+        if (window.location.protocol === 'https:') {
+            var httpUrl = 'http:' + window.location.href.substring(6);
+            window.location.replace(httpUrl);
+        }
+    </script>
+    
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
