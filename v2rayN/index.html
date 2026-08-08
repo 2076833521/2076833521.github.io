@@ -152,6 +152,12 @@
   .icon.android { background: rgba(0, 184, 148, .15); }
   .icon.windows { background: rgba(108, 92, 231, .15); }
 
+  .icon img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+  }
+
   .card h2 { font-size: 22px; }
   .card .desc { color: var(--text-dim); font-size: 13px; margin: 6px 0 20px; }
   .card .tag {
@@ -271,7 +277,7 @@
     {
       id: "android",
       platform: "Android",
-      icon: "🤖",
+      icon: "https://png.xrvi.top/file/1786206924293_Image_1786206262532.png",
       tag: "v4.0+",
       desc: "支持 Android 8.0 及以上系统，含订阅、路由分流等功能",
       links: {
@@ -282,7 +288,7 @@
     {
       id: "windows",
       platform: "Windows",
-      icon: "🪟",
+      icon: "https://png.xrvi.top/file/1786206903681_Image_1786206794938.png",
       tag: "v6.x",
       desc: "适用于 Win10 / Win11，支持 64 位系统",
       links: {
@@ -298,7 +304,7 @@
   const root = document.getElementById("versions");
   root.innerHTML = DOWNLOADS.map((item) => `
     <div class="card">
-      <div class="icon ${ICON_CLASS[item.id]}">${item.icon}</div>
+      <div class="icon ${ICON_CLASS[item.id]}"><img src="${item.icon}" alt="${item.platform}"></div>
       <h2>${item.platform}<span class="tag">${item.tag}</span></h2>
       <p class="desc">${item.desc}</p>
       <button class="btn-download" data-id="${item.id}">⬇ 下载 ${item.platform} 版</button>
