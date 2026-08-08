@@ -114,6 +114,7 @@
 
   .card {
     position: relative;
+    z-index: 1;
     flex: 1 1 340px;
     max-width: 400px;
     background: rgba(255, 255, 255, 0.07);
@@ -130,6 +131,11 @@
     transform: translateY(-4px);
     background: rgba(255, 255, 255, 0.12);
     box-shadow: 0 16px 48px rgba(108, 92, 231, 0.35);
+  }
+
+  /* 浮层展开时提升该卡片层级，避免被相邻卡片遮挡 */
+  .card:has(.download-options.open) {
+    z-index: 5;
   }
 
   .card .icon {
