@@ -133,8 +133,8 @@
     box-shadow: 0 16px 48px rgba(108, 92, 231, 0.35);
   }
 
-  /* 浮层展开时提升该卡片层级，避免被相邻卡片遮挡 */
-  .card:has(.download-options.open) {
+  /* 浮层展开时提升该卡片层级，避免被相邻卡片遮挡（类名由 JS 控制） */
+  .card.panel-open {
     z-index: 5;
   }
 
@@ -330,16 +330,22 @@
 
   // ===== 点击切换下载方式（同一时间只展开一个） =====
   const panels = document.querySelectorAll(".download-options");
+  const cards = document.querySelectorAll(".card");
 
   document.querySelectorAll(".btn-download").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       const panel = document.getElementById(`options-${btn.dataset.id}`);
       const wasOpen = panel.classList.contains("open");
 
-      // 收起所有面板
+      // 收起所有面板并取消卡片层级提升
       panels.forEach((p) => p.classList.remove("open"));
-      // 若之前未展开则展开当前面板
-      if (!wasOpen) panel.classList.add("open");
+      cards.forEach((c) => c.classList.remove("panel-open"));
+
+      // 若之前未展开则展开当前面板，并提升所在卡片层级
+      if (!wasOpen) {
+        panel.classList.add("open");
+        btn.closest(".card").classList.add("panel-open");
+      }
 
       e.stopPropagation();
     });
@@ -351,6 +357,7 @@
   // 点击页面其他区域收起浮层
   document.addEventListener("click", () => {
     panels.forEach((p) => p.classList.remove("open"));
+    cards.forEach((c) => c.classList.remove("panel-open"));
   });
 </script>
 
