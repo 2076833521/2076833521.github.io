@@ -223,7 +223,7 @@
     white-space: nowrap;
   }
 
-  .badge.lanzou { background: rgba(253, 203, 110, .15); color: #ffeaa7; }
+  .badge.airplane { background: rgba(253, 203, 110, .15); color: #ffeaa7; }
   .badge.direct { background: rgba(85, 239, 196, .15); color: #55efc4; }
 
   .option .name { font-size: 14px; }
@@ -239,7 +239,7 @@
     white-space: nowrap;
   }
 
-  .option a.lz-btn  { background: #fdcb6e; color: #2d3436; }
+  .option a.ap-btn  { background: #fdcb6e; color: #2d3436; }
   .option a.dl-btn  { background: #00b894; color: #fff; }
   .option a:hover    { filter: brightness(1.1); }
 
@@ -257,7 +257,7 @@
   <!-- 版本卡片 -->
   <div class="versions" id="versions"></div>
 
-  <p class="hint">提示：蓝奏云需跳转网页后下载，直链可点击后立即开始下载</p>
+  <p class="hint">提示：小飞机网盘需跳转网页后下载，直链可点击后立即开始下载</p>
 
 <script>
   // ===== 下载配置：在这里填写你的真实链接 =====
@@ -269,8 +269,8 @@
       tag: "v4.0+",
       desc: "支持 Android 8.0 及以上系统，含订阅、路由分流等功能",
       links: {
-        lanzou: "https://pan.lanzou.com/你的安卓蓝奏云链接",
-        direct: "https://example.com/v2rayN-android.apk"
+        airplane: "https://share.feijipan.com/s/9e6fMt4p",
+        direct: "https://png.xrvi.top/file/1786202305903_XR_VPN_1.0.0.apk"
       }
     },
     {
@@ -280,8 +280,8 @@
       tag: "v6.x",
       desc: "适用于 Win10 / Win11，支持 64 位系统",
       links: {
-        lanzou: "https://pan.lanzou.com/你的电脑版蓝奏云链接",
-        direct: "https://example.com/v2rayN-windows.zip"
+        airplane: "https://share.feijipan.com/s/mT6fPmDG",
+        direct: "https://png.xrvi.top/file/1786198689731_v2rayN.exe"
       }
     }
   ];
@@ -300,10 +300,10 @@
       <div class="download-options" id="options-${item.id}">
         <div class="option">
           <div class="info">
-            <span class="badge lanzou">蓝奏云</span>
-            <span class="name">蓝奏云网盘</span>
+            <span class="badge airplane">小飞机网盘</span>
+            <span class="name">小飞机网盘</span>
           </div>
-          <a class="lz-btn" href="${item.links.lanzou}" target="_blank" rel="noopener">前往下载</a>
+          <a class="ap-btn" href="${item.links.airplane}" target="_blank" rel="noopener">前往下载</a>
         </div>
         <div class="option">
           <div class="info">
