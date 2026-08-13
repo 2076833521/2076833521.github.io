@@ -21,24 +21,24 @@ nav{width:240px;flex-shrink:0;position:sticky;top:0;height:100vh;overflow-y:auto
 nav a{display:block;color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:6px;margin:1px 0;transition:all .15s}
 nav a:hover{color:var(--fg);background:var(--panel)}
 nav a.active{color:var(--accent);background:rgba(88,166,255,.1);font-weight:600}
-nav .group{font-size:11px;color:#6e7681;text-transform:uppercase;letter-spacing:1px;margin:16px 0 4px;padding:0 10px}
+nav .group{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin:16px 0 4px;padding:0 10px}
 main{flex:1;min-width:0;padding:28px 36px 80px}
 h2{font-size:22px;margin:48px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--border)}
 h2:first-child{margin-top:0}
 h3{font-size:17px;margin:28px 0 10px;color:var(--fg)}
 h4{font-size:15px;margin:20px 0 8px}
-p,li{font-size:14.5px;color:#c9d1d9}
+p,li{font-size:14.5px;color:var(--fg)}
 ul{padding-left:22px}
 code{font-family:"SF Mono",Consolas,"JetBrains Mono",monospace;font-size:13px;background:rgba(110,118,129,.2);padding:2px 6px;border-radius:4px;color:var(--accent)}
 pre{background:var(--code-bg);border:1px solid var(--border);border-radius:8px;padding:14px 16px;overflow-x:auto;margin:12px 0}
-pre code{background:none;padding:0;color:#c9d1d9;font-size:13px;line-height:1.6}
+pre code{background:none;padding:0;color:var(--fg);font-size:13px;line-height:1.6}
 table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13.5px}
 th,td{text-align:left;padding:9px 12px;border:1px solid var(--border)}
 th{background:var(--panel);color:var(--fg);font-weight:600;white-space:nowrap}
 td code{white-space:nowrap}
 .badge{display:inline-block;background:rgba(63,185,80,.15);color:var(--green);border:1px solid rgba(63,185,80,.3);border-radius:999px;padding:1px 10px;font-size:12px;margin-left:8px;vertical-align:middle}
-.warn{background:rgba(248,81,73,.08);border:1px solid rgba(248,81,73,.3);color:#ffa198;border-radius:8px;padding:10px 14px;font-size:13.5px;margin:12px 0}
-.info{background:rgba(88,166,255,.08);border:1px solid rgba(88,166,255,.3);color:#9ecbff;border-radius:8px;padding:10px 14px;font-size:13.5px;margin:12px 0}
+.warn{background:rgba(248,81,73,.08);border:1px solid rgba(248,81,73,.3);color:var(--red);border-radius:8px;padding:10px 14px;font-size:13.5px;margin:12px 0}
+.info{background:rgba(88,166,255,.08);border:1px solid rgba(88,166,255,.3);color:var(--accent);border-radius:8px;padding:10px 14px;font-size:13.5px;margin:12px 0}
 @media (max-width:900px){
   .layout{flex-direction:column}
   nav{width:100%;height:auto;position:static;border-right:0;border-bottom:1px solid var(--border);display:flex;flex-wrap:wrap;gap:2px;padding:10px}
@@ -46,20 +46,58 @@ td code{white-space:nowrap}
   nav .group{display:none}
   main{padding:20px 16px 80px}
 }
+/* ---- 浅色主题 ---- */
+[data-theme="light"]{
+  --bg:#f6f8fa; --panel:#ffffff; --border:#d8dee4;
+  --fg:#1f2328; --muted:#59636e; --accent:#0969da; --green:#1a7f37;
+  --red:#cf222e; --code-bg:#f6f8fa; --highlight:#fff3b0;
+}
+[data-theme="light"] header{background:linear-gradient(135deg,#ffffff 0%,#f6f8fa 100%)}
+[data-theme="light"] .search-results{box-shadow:0 8px 24px rgba(0,0,0,.12)}
+/* ---- 工具栏：搜索 + 主题切换 ---- */
+.toolbar{display:flex;align-items:center;justify-content:center;gap:12px;padding:16px 24px 0}
+.search-wrap{position:relative;width:100%;max-width:480px}
+#searchInput{width:100%;padding:9px 14px;border-radius:8px;border:1px solid var(--border);background:var(--panel);color:var(--fg);font-size:14px;outline:none;transition:border-color .15s}
+#searchInput:focus{border-color:var(--accent)}
+.search-results{position:absolute;top:calc(100% + 6px);left:0;right:0;background:var(--panel);border:1px solid var(--border);border-radius:8px;max-height:340px;overflow-y:auto;display:none;z-index:100;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.search-results.show{display:block}
+.search-results a{display:block;padding:8px 12px;text-decoration:none;color:var(--fg);border-bottom:1px solid var(--border);font-size:13px;cursor:pointer}
+.search-results a:hover{background:rgba(88,166,255,.12)}
+.search-results a .sec{color:var(--accent);font-size:12px;font-weight:600}
+.search-results a .ctx{color:var(--muted);font-size:12px;display:block;margin-top:2px;word-break:break-all}
+.search-results .empty{padding:10px 12px;color:var(--muted);font-size:13px}
+.theme-toggle{flex-shrink:0;width:38px;height:38px;border-radius:8px;border:1px solid var(--border);background:var(--panel);color:var(--fg);font-size:17px;cursor:pointer;transition:border-color .15s}
+.theme-toggle:hover{border-color:var(--accent)}
+.download-btn{flex-shrink:0;display:inline-flex;align-items:center;gap:4px;height:38px;padding:0 12px;border-radius:8px;border:1px solid var(--border);background:var(--panel);color:var(--fg);font-size:13px;text-decoration:none;transition:border-color .15s}
+.download-btn:hover{border-color:var(--accent);color:var(--accent)}
+mark{background:var(--highlight);color:var(--fg);border-radius:2px;padding:0 2px}
+@media (max-width:900px){
+  .toolbar{padding-top:10px}
+}
 </style>
 </head>
 <body>
 
 <header>
   <h1>XR 脚本开发文档</h1>
-  <p>基于 BeanShell 的 Java 语法脚本引擎 · 事件驱动 · 动态扩展</p>
+  <p>Java 语法脚本引擎 · 事件驱动 · 动态扩展</p>
 </header>
+
+<div class="toolbar">
+  <div class="search-wrap">
+    <input id="searchInput" type="text" placeholder="搜索方法 / 字段 / 章节…" autocomplete="off" aria-label="搜索文档">
+    <div id="searchResults" class="search-results"></div>
+  </div>
+  <button id="themeToggle" class="theme-toggle" title="切换深色/浅色主题" aria-label="切换主题">🌙</button>
+  <a class="download-btn" href="Plugin%20API.md" download title="下载 Markdown 版本文档">⤓ 下载 .md 文档</a>
+</div>
 
 <div class="layout">
 <nav>
   <div class="group">基础</div>
   <a href="#intro">简介</a>
   <a href="#env">开发环境说明</a>
+  <a href="#compile">编译通道</a>
   <a href="#lambda">Lambda 表达式</a>
   <a href="#files">脚本必须文件</a>
   <a href="#globals">全局变量</a>
@@ -85,18 +123,50 @@ td code{white-space:nowrap}
 <main>
 
 <h2 id="intro">简介</h2>
-<p>脚本引擎基于 <code>BeanShell</code>，支持 <strong>Java 8 语法</strong>，不支持注解。脚本目录位于模块数据目录下的 <code>plugin</code> 文件夹中，支持本地创建与从在线脚本库下载。</p>
+<p>XR 脚本由 <strong>Java 逻辑 + HTML 界面</strong> 两部分组成，两条通道相互独立、可自由组合：</p>
+<ul>
+  <li><strong>逻辑层（Java）</strong>：脚本入口 <code>main.java</code> 采用 <strong>Java 8 语法</strong>（解释型执行），支持 Lambda、方法引用、Stream 等特性，并额外支持 <code>var</code> 局部变量声明（预处理转译）；辅助类放入 <code>src/</code> 目录，由内置编译通道以 <strong>Java 21 现代语法</strong>（<code>record</code>、<code>record</code> 模式、<code>instanceof</code> 模式、文本块、<code>switch</code> 表达式、Stream 等）<strong>自动编译</strong>为 dex 并可 <code>import</code> 使用（详见「编译通道」章节）。脚本不支持注解。</li>
+  <li><strong>界面层（HTML/CSS/JavaScript）</strong>：<code>showHtml()</code> 弹出页面渲染 HTML 内容，<code>openUrl()</code> 打开网页——WebView 内 JavaScript 已启用，可构建交互式界面（详见「其他辅助方法 → 界面」章节）。</li>
+</ul>
+<div class="info">注意：<code>record</code> / <code>record</code> 模式 / <code>switch</code> 模式匹配需要 Android 14+（API 34），低版本设备会在编译期报错（见「编译通道」限制）。</div>
+<p>脚本目录：位于数据目录下的 <code>scripts</code> 文件夹中（每个插件一个子目录），支持本地创建与从在线脚本库下载。</p>
 
 <h2 id="env">开发环境说明</h2>
-<p>脚本运行于 <strong>Modern BeanShell</strong> 环境（支持 Java 8+）。编写时请遵循以下规范：</p>
+<p>脚本同时提供<strong>编译通道（Java 21 现代语法）</strong>与<strong>解释执行（Java 8）</strong>两条书写通道，按代码位置自动选择：</p>
 <ul>
+  <li><strong>编译通道（<code>src/</code> 目录）</strong>：Java 21 全语法支持——<code>record</code>、<code>record</code> 模式、<code>instanceof</code> 模式、文本块、<code>switch</code> 表达式（<code>-&gt;</code> 形式）、Stream 等开箱即用，启动时自动编译为 dex 并加入类加载链，脚本内直接 <code>import</code>。无 <code>src/</code> 目录则完全跳过，零开销。</li>
+  <li><strong>语法支持（main.java）</strong>：Java 8 特性，包括 Lambda 表达式（<code>-&gt;</code>）、流式 API（<code>Stream</code>），并支持 Kotlin 空安全操作符 <code>?.</code>（安全调用）与 <code>?:</code>（Elvis 操作符）以简化空值处理。</li>
+  <li><strong>语法上限（main.java）</strong>：脚本本体仅支持 Java 8 语法 + <code>var</code> 声明（<code>var x = ...</code> 自动转译为无类型声明）。<code>record</code>、文本块、<code>switch</code> 表达式、模式匹配等其余 Java 9+ 语法需写入 <code>src/</code> 目录（见「编译通道」章节），或用 <code>loadJar</code>/<code>loadDex</code> 加载预编译产物后在脚本中 <code>import</code> 使用。</li>
   <li><strong>属性访问</strong>：推荐使用成员符 <code>.</code> 直接访问对象属性（如 <code>msgData.msg</code>），无需调用 Getter 或复杂反射。</li>
   <li><strong>方法访问</strong>：无需强制类型转换即可自动调用对应签名的方法和字段。</li>
-  <li><strong>全局作用域</strong>：<code>context</code>、<code>classLoader</code> 及所有 API 方法在脚本任意位置（含内部类、Lambda）均可直接调用，<strong>无需传递</strong>。</li>
-  <li><strong>语法支持</strong>：完整支持 Java 8 特性，包括 Lambda 表达式（<code>-&gt;</code>）、流式 API（<code>Stream</code>），此外支持 Kotlin 空安全操作符 <code>?.</code>（安全调用）与 <code>?:</code>（Elvis 操作符）以简化空值处理。</li>
+  <li><strong>全局作用域</strong>：<code>context</code> 及所有 API 方法在脚本任意位置（含内部类、Lambda）均可直接调用，<strong>无需传递</strong>。</li>
   <li><strong>线程模型</strong>：事件回调默认在 <strong>IO 线程</strong> 执行。操作 UI 需切换至主线程，内置 <code>toast</code> 已自动处理线程切换。</li>
-  <li><strong>宿主交互</strong>：脚本持有宿主和模块的 <code>ClassLoader</code>，可直接 <code>import</code> 类并使用。</li>
+  <li><strong>能力边界</strong>：脚本仅通过本文档提供的 API 与 QQ 交互。请勿依赖宿主内部类或未公开的结构，此类用法不受支持，且可能在版本更新后失效。</li>
 </ul>
+
+<h2 id="compile">编译通道（现代 Java 语法）</h2>
+<p>脚本目录下的 <code>src/**/*.java</code> 会在插件启动时<strong>自动编译</strong>为 dex 并加入脚本类加载链，脚本内可直接 <code>import</code> 使用。适用于需要 <code>record</code>、<code>switch</code> 表达式、文本块、<code>instanceof</code> 模式匹配、Stream 等现代语法的辅助类。</p>
+<ul>
+  <li><strong>目录约定</strong>：<code>插件目录/src/</code> 下的 <code>.java</code> 文件（递归）；没有 <code>src/</code> 目录的插件完全不受影响（零开销，跳过编译）。</li>
+  <li><strong>语法级别</strong>：Java 21（<code>var</code> / <code>record</code> / <code>instanceof</code> 模式 / 文本块 / Stream 等），<code>src/</code> 目录之外的脚本本体仍按 Java 8 语法书写。</li>
+  <li><strong>可用 API</strong>：编译 classpath 为 Android 常用包（<code>java.*</code>、常见 <code>android.*</code>）。QQ 特有类型不在 classpath 内，跨边界交互请用 <code>Object</code> 参数。</li>
+  <li><strong>增量构建</strong>：编译产物缓存于 <code>数据目录/cache/build/</code>（dex + 源文件指纹），源文件未变时直接复用，无需重复编译。</li>
+  <li><strong>错误处理</strong>：编译失败写入 <code>error.txt</code>，不阻断 <code>main.java</code> 解释执行；脚本内使用未成功编译的类时会在 <code>import</code>/调用处得到明确报错。</li>
+  <li><strong>限制</strong>：<code>record</code>（含 <code>record</code> 模式）与 <code>switch</code> 模式匹配（<code>case X x -&gt;</code>、<code>case null</code>）需要 Android 14+（API 34）才支持；低版本设备上编译通道会在编译期拒绝并提示替代写法（record 换普通类、模式匹配换 <code>-&gt;</code> switch 语句），不会运行期缺类。密封类在编译后不强制 exhaustive <code>switch</code>；辅助类内无法直接调用脚本级 API（<code>log</code>/<code>toast</code> 等），需通过参数传入或反射。</li>
+  <li><strong>显式编译</strong>：运行时也可调用 <code>compileJava(path)</code>（见「动态加载」）编译单个文件或目录。</li>
+</ul>
+<p>示例（<code>src/util/Helper.java</code>，record 需 Android 14+ 设备）：</p>
+<pre><code>package util;
+
+public record Helper(String name, int count) {
+    public String describe() {
+        return "name=" + name + ", count=" + count;
+    }
+}</code></pre>
+<p>脚本中：</p>
+<pre><code>import util.Helper;
+Helper h = new Helper("xr", 42);
+log(h.describe());</code></pre>
 
 <h2 id="lambda">Lambda 表达式支持</h2>
 <p>理论支持标准 Java Lambda 语法，可用于简化代码或实现各类函数式接口（如 <code>Runnable</code>、<code>Comparator</code>、<code>Consumer</code> 等，以及脚本中自定义的符合单抽象方法的接口）。</p>
@@ -150,7 +220,6 @@ list.forEach(this::log);</code></pre>
   <tr><th>变量名</th><th>类型</th><th>描述</th></tr>
   <tr><td><code>context</code></td><td><code>android.content.Context</code></td><td>宿主 App 全局上下文</td></tr>
   <tr><td><code>pluginId</code></td><td><code>String</code></td><td>当前加载脚本 ID（<strong>注意大小写</strong>）</td></tr>
-  <tr><td><code>classLoader</code></td><td><code>ClassLoader</code></td><td>QQ 宿主类加载器 (HostClassLoader)</td></tr>
   <tr><td><code>pluginPath</code></td><td><code>String</code></td><td>当前加载脚本的文件夹绝对路径（注意无 /）</td></tr>
   <tr><td><code>myUin</code></td><td><code>String</code></td><td>当前登录的 QQ 号</td></tr>
 </table>
@@ -171,8 +240,21 @@ list.forEach(this::log);</code></pre>
   <tr><td><code>path</code></td><td><code>String</code></td><td>文件/视频/语音保存路径</td></tr>
   <tr><td><code>atList</code></td><td><code>List&lt;String&gt;</code></td><td>消息中艾特的 QQ 号列表</td></tr>
   <tr><td><code>atMap</code></td><td><code>Map&lt;String,String&gt;</code></td><td>艾特映射表（Key: Uin, Value: 艾特内容）</td></tr>
-  <tr><td><code>data</code></td><td><code>Object</code></td><td>原始 <code>MsgRecord</code> 对象</td></tr>
-  <tr><td><code>contact</code></td><td><code>Object</code></td><td>原始 <code>Contact</code> 对象</td></tr>
+  <tr><td><code>data</code></td><td><code>Object</code></td><td>原始消息记录对象（一般无需访问）</td></tr>
+  <tr><td><code>contact</code></td><td><code>Object</code></td><td>原始联系人对象（一般无需访问，发送类方法可直接传入）</td></tr>
+</table>
+<p><strong>派生便捷字段</strong>：</p>
+<table>
+  <tr><th>字段</th><th>类型</th><th>描述</th></tr>
+  <tr><td><code>SenderNickName</code></td><td><code>String</code></td><td>发送者昵称</td></tr>
+  <tr><td><code>IsGroup</code></td><td><code>boolean</code></td><td>是否群聊（<code>type == 2</code>）</td></tr>
+  <tr><td><code>IsSend</code></td><td><code>boolean</code></td><td>是否自己发送的消息</td></tr>
+  <tr><td><code>FileName</code> / <code>LocalPath</code> / <code>FileSize</code> / <code>FileUrl</code></td><td><code>String/long</code></td><td>文件信息</td></tr>
+  <tr><td><code>md5</code></td><td><code>String</code></td><td>消息 MD5（当前恒为空串）</td></tr>
+  <tr><td><code>ReplyTo</code></td><td><code>String</code></td><td>回复的用户账号（当前恒为空串）</td></tr>
+  <tr><td><code>RecordMsg</code></td><td><code>Object</code></td><td>被回复的消息（当前恒为 null）</td></tr>
+  <tr><td><code>GuildID</code> / <code>ChannelID</code> / <code>IsChannel</code></td><td><code>String/boolean</code></td><td>频道信息（当前恒为默认值）</td></tr>
+  <tr><td><code>PicUrlList</code></td><td><code>ArrayList&lt;String&gt;</code></td><td>图片链接列表（随 <code>[pic=]</code> 占位符一并填充）</td></tr>
 </table>
 
 <h2 id="friend">FriendInfo（好友信息）</h2>
@@ -190,7 +272,13 @@ list.forEach(this::log);</code></pre>
   <tr><td><code>group</code></td><td><code>String</code></td><td>群号</td></tr>
   <tr><td><code>groupName</code></td><td><code>String</code></td><td>群名称</td></tr>
   <tr><td><code>groupOwner</code></td><td><code>String</code></td><td>群主 QQ 号</td></tr>
-  <tr><td><code>groupInfo</code></td><td><code>Object</code></td><td>原始 <code>TroopInfo</code> 对象</td></tr>
+  <tr><td><code>groupInfo</code></td><td><code>Object</code></td><td>原始群信息对象（一般无需访问）</td></tr>
+</table>
+<p><strong>派生便捷字段</strong>：</p>
+<table>
+  <tr><th>字段</th><th>类型</th><th>描述</th></tr>
+  <tr><td><code>AdminList</code></td><td><code>String[]</code></td><td>管理员列表（含群主；反射读取宿主字段，失败时为空数组）</td></tr>
+  <tr><td><code>IsOwnerOrAdmin</code></td><td><code>boolean</code></td><td>当前账号是否群主或管理员</td></tr>
 </table>
 
 <h2 id="member">MemberInfo（群成员信息）</h2>
@@ -202,7 +290,14 @@ list.forEach(this::log);</code></pre>
   <tr><td><code>joinGroupTime</code></td><td><code>long</code></td><td>入群时间戳</td></tr>
   <tr><td><code>lastActiveTime</code></td><td><code>long</code></td><td>最后发言时间戳</td></tr>
   <tr><td><code>role</code></td><td><code>String</code></td><td>角色（OWNER: 群主, ADMIN: 管理员, MEMBER: 成员）</td></tr>
-  <tr><td><code>memberInfo</code></td><td><code>Object</code></td><td>原始 <code>TroopMemberInfo</code> 对象</td></tr>
+  <tr><td><code>memberInfo</code></td><td><code>Object</code></td><td>原始成员信息对象（一般无需访问）</td></tr>
+</table>
+<p><strong>派生便捷字段</strong>：</p>
+<table>
+  <tr><th>字段</th><th>类型</th><th>描述</th></tr>
+  <tr><td><code>UserName</code></td><td><code>String</code></td><td>好友备注（无备注时降级为昵称）</td></tr>
+  <tr><td><code>IsOwner</code></td><td><code>boolean</code></td><td>是否群主</td></tr>
+  <tr><td><code>IsAdmin</code></td><td><code>boolean</code></td><td>是否管理员或群主</td></tr>
 </table>
 
 <h2 id="forbid">ForbidInfo（禁言信息）</h2>
@@ -228,56 +323,68 @@ list.forEach(this::log);</code></pre>
   </li>
   <li>可任意组合，将根据形式自动解析</li>
 </ul>
-<p><strong>方法重载 2</strong>：<code>sendMsg(Object Contact对象, String 内容)</code></p>
+<p><strong>方法重载 2</strong>：<code>sendMsg(Object 联系人, String 内容)</code></p>
+<p><strong>方法重载 3</strong>：<code>sendMsg(String 群号, String QQ号, String 内容)</code> —— QQ 号为空时发送群消息，群号为空时发送私聊消息。</p>
 
 <h3>2. sendPic：发送图片</h3>
 <ul>
   <li>重载 1：<code>sendPic(String PeerUin, String 图片路径, int 聊天类型)</code></li>
-  <li>重载 2：<code>sendPic(Object Contact对象, String 图片路径)</code></li>
+  <li>重载 2：<code>sendPic(Object 联系人, String 图片路径)</code></li>
+  <li>重载 3：<code>sendPic(String 群号, String QQ号, String 图片路径)</code></li>
 </ul>
 
 <h3>3. sendPtt：发送语音</h3>
 <ul>
   <li>重载 1：<code>sendPtt(String PeerUin, String 语音路径, int 聊天类型)</code></li>
-  <li>重载 2：<code>sendPtt(Object Contact对象, String 语音路径)</code></li>
+  <li>重载 2：<code>sendPtt(Object 联系人, String 语音路径)</code></li>
   <li>重载 3：<code>sendPtt(String PeerUin, String 语音路径, int 聊天类型, int durationMs)</code></li>
-  <li>重载 4：<code>sendPtt(Object Contact对象, String 语音路径, int durationMs)</code></li>
+  <li>重载 4：<code>sendPtt(Object 联系人, String 语音路径, int durationMs)</code></li>
 </ul>
 <p><code>durationMs</code> 为毫秒；不传时从 silk 估算，失败回退 <code>1000ms</code>。</p>
 
 <h3>4. sendCard：发送 JSON 卡片</h3>
 <ul>
   <li>重载 1：<code>sendCard(String PeerUin, String JSON字符串, int 聊天类型)</code></li>
-  <li>重载 2：<code>sendCard(Object Contact对象, String JSON字符串)</code></li>
+  <li>重载 2：<code>sendCard(Object 联系人, String JSON字符串)</code></li>
+  <li>重载 3：<code>sendCard(String 群号, String QQ号, String 卡片JSON)</code></li>
 </ul>
 
 <h3>5. sendFile：发送文件</h3>
 <ul>
   <li>重载 1：<code>sendFile(String PeerUin, String 文件路径, int 聊天类型)</code></li>
-  <li>重载 2：<code>sendFile(Object Contact对象, String 文件路径)</code></li>
+  <li>重载 2：<code>sendFile(Object 联系人, String 文件路径)</code></li>
+  <li>重载 3：<code>sendFile(String 群号, String QQ号, String 文件路径)</code></li>
 </ul>
 
 <h3>6. sendVideo：发送视频</h3>
 <ul>
   <li>重载 1：<code>sendVideo(String PeerUin, String 视频路径, int 聊天类型)</code></li>
-  <li>重载 2：<code>sendVideo(Object Contact对象, String 视频路径)</code></li>
+  <li>重载 2：<code>sendVideo(Object 联系人, String 视频路径)</code></li>
+  <li>重载 3：<code>sendVideo(String 群号, String QQ号, String 视频路径)</code></li>
 </ul>
 
-<h3>7. sendReplyMsg：发送引用回复</h3>
+<h3>7. sendVoice：发送语音</h3>
+<p><code>sendVoice(String 群号, String QQ号, String 语音路径)</code> —— 等价于 <code>sendPtt</code>。</p>
+
+<h3>8. sendReplyMsg：发送引用回复</h3>
 <ul>
   <li>重载 1：<code>sendReplyMsg(String PeerUin, long 引用消息ID, String 内容, int 聊天类型)</code></li>
-  <li>重载 2：<code>sendReplyMsg(Object Contact对象, long 引用消息ID, String 内容)</code></li>
+  <li>重载 2：<code>sendReplyMsg(Object 联系人, long 引用消息ID, String 内容)</code></li>
 </ul>
 
-<h3>8. recallMsg：撤回消息</h3>
+<h3>9. recallMsg：撤回消息</h3>
 <ul>
   <li>重载 1：<code>recallMsg(int 聊天类型, String PeerUin, long 消息ID)</code></li>
-  <li>重载 2：<code>recallMsg(Object Contact对象, long 消息ID)</code></li>
+  <li>重载 2：<code>recallMsg(Object 联系人, long 消息ID)</code></li>
 </ul>
 
-<h3>9. sendPai：拍一拍</h3>
+<h3>10. sendPai：拍一拍</h3>
 <p><code>sendPai(String 被拍者Uin, String PeerUin, int 聊天类型)</code></p>
 <p><code>PeerUin</code>：在群里则是群号，私聊则是好友 QQ。</p>
+<p><code>sendPai(String 群号, String 对方QQ)</code>（私聊时群号传空）。</p>
+
+<h3>11. revokeMsg：撤回消息</h3>
+<p><code>revokeMsg(Object msg)</code> —— msg 为 <code>onMsg</code> 传入的消息对象，仅能撤回自己或管理员可撤回的消息。</p>
 
 <h2 id="friend-api">二、好友相关方法</h2>
 
@@ -296,6 +403,12 @@ list.forEach(this::log);</code></pre>
   <li><code>String getUinFromUid(String uid)</code></li>
 </ul>
 
+<h3>5. 好友信息查询</h3>
+<ul>
+  <li><code>String getFriendName(String uin)</code>：好友昵称，找不到返回空串</li>
+  <li><code>String getFriendRemark(String uin)</code>：好友备注，找不到返回空串</li>
+</ul>
+
 <h2 id="troop-api">三、群管理与信息获取</h2>
 
 <h3>1. getGroupList：获取群列表</h3>
@@ -308,36 +421,45 @@ list.forEach(this::log);</code></pre>
 <p><code>List&lt;ForbidInfo&gt; getProhibitList(String 群号)</code> —— 返回 <code>ForbidInfo</code> 对象列表。</p>
 
 <h3>4. getGroupInfo：获取单个群信息</h3>
-<p><code>TroopInfo getGroupInfo(String 群号)</code> —— 返回原始 <code>TroopInfo</code> 对象。</p>
+<p><code>Object getGroupInfo(String 群号)</code> —— 返回原始群信息对象（一般无需访问，常规查询用 <code>getGroupList</code>）。</p>
 
 <h3>5. getMemberInfo：获取单个成员信息</h3>
 <p><code>MemberInfo getMemberInfo(String 群号, String 成员QQ)</code></p>
 
-<h3>6. shutUp：禁言成员</h3>
+<h3>6. getGroupMemberName：获取群成员名称</h3>
+<ul>
+  <li><code>String getGroupMemberName(String 群号, String 成员QQ)</code>：群名片/昵称，找不到返回空串</li>
+</ul>
+
+<h3>7. 群信息查询</h3>
+<p><code>String getGroupName(String 群号)</code> —— 群名称，找不到返回空串。</p>
+
+<h3>8. shutUp：禁言成员</h3>
 <p><code>shutUp(String 群号, String 成员QQ, long 秒数)</code> —— 传 0 为解禁。</p>
 
-<h3>7. shutUpAll：全员禁言</h3>
+<h3>9. shutUpAll：全员禁言</h3>
 <p><code>shutUpAll(String 群号, boolean 是否开启)</code></p>
 
-<h3>8. kickGroup：踢出群成员</h3>
+<h3>10. kickGroup：踢出群成员</h3>
 <p><code>kickGroup(String 群号, String 成员QQ, boolean 是否拉黑)</code> —— <code>是否拉黑</code>：不再接收此人申请。</p>
 
-<h3>9. setGroupAdmin：设置管理员</h3>
+<h3>11. setGroupAdmin：设置管理员</h3>
 <p><code>setGroupAdmin(String 群号, String 成员QQ, boolean 是否设为管理)</code></p>
 
-<h3>10. setGroupMemberTitle：设置头衔（仅群主）</h3>
+<h3>12. setGroupMemberTitle：设置头衔（仅群主）</h3>
 <p><code>setGroupMemberTitle(String 群号, String 成员QQ, String 头衔)</code></p>
 
-<h3>11. changeMemberName：修改群名片</h3>
+<h3>13. changeMemberName：修改群名片</h3>
 <p><code>changeMemberName(String 群号, String 成员QQ, String 新名片)</code></p>
 
-<h3>12. isShutUp：判断群是否全员禁言</h3>
+<h3>14. isShutUp：判断群是否全员禁言</h3>
 <p><code>boolean isShutUp(String 群号)</code></p>
 
-<h3>13. clockIn：群打卡</h3>
+<h3>15. clockIn：群打卡</h3>
 <p><code>clockIn(String 群号)</code></p>
 
 <h2 id="cookie">四、Cookie 与 Token 方法</h2>
+<div class="warn">以下方法返回账号级凭据（Skey/Pskey 等），请仅在必要场景使用，切勿写入日志、上传或分享给第三方。</div>
 <table>
   <tr><th>方法</th><th>返回值</th></tr>
   <tr><td><code>String getSkey()</code></td><td>Skey</td></tr>
@@ -352,14 +474,16 @@ list.forEach(this::log);</code></pre>
 </table>
 
 <h2 id="storage">五、数据存储方法</h2>
-<p>数据保存在 <code>plugin/脚本ID/config/</code> 下的 JSON 文件中。</p>
+<p>数据保存在 <code>scripts/脚本ID/config/</code> 下的 JSON 文件中。</p>
 
 <h3>1. 写入数据</h3>
 <ul>
-  <li><code>putString(String 配置名, String 键, String 值)</code></li>
+  <li><code>putString(String 配置名, String 键, String 值)</code><br>值为 <code>null</code> 时删除该键</li>
   <li><code>putInt(String 配置名, String 键, int 值)</code></li>
   <li><code>putLong(String 配置名, String 键, long 值)</code></li>
   <li><code>putBoolean(String 配置名, String 键, boolean 值)</code></li>
+  <li><code>putFloat(String 配置名, String 键, float 值)</code></li>
+  <li><code>putDouble(String 配置名, String 键, double 值)</code></li>
 </ul>
 
 <h3>2. 读取数据</h3>
@@ -368,6 +492,9 @@ list.forEach(this::log);</code></pre>
   <li><code>int getInt(String 配置名, String 键, int 默认值)</code></li>
   <li><code>long getLong(String 配置名, String 键, long 默认值)</code></li>
   <li><code>boolean getBoolean(String 配置名, String 键, boolean 默认值)</code></li>
+  <li><code>float getFloat(String 配置名, String 键, float 默认值)</code></li>
+  <li><code>double getDouble(String 配置名, String 键, double 默认值)</code></li>
+  <li><code>String getString(String 配置名, String 键)</code> —— 两参版本，未取到时返回 <code>null</code></li>
 </ul>
 
 <h2 id="callback">六、回调方法（main.java）</h2>
@@ -387,6 +514,7 @@ list.forEach(this::log);</code></pre>
 <ul>
   <li><code>void chatInterface(int 聊天类型, String PeerUin, String 名称)</code>：进入聊天界面</li>
   <li><code>void onPaiYiPai(String PeerUin, int 聊天类型, String 操作者QQ)</code>：拍一拍事件</li>
+  <li><code>void onClickFloatingWindow(int 聊天类型, String 群号或QQ号)</code>：打开脚本悬浮窗菜单时触发</li>
 </ul>
 
 <h3>4. 发送预处理</h3>
@@ -400,6 +528,8 @@ list.forEach(this::log);</code></pre>
 <h3>1. 脚本菜单（悬浮窗）</h3>
 <ul>
   <li><strong>添加</strong>：<code>addItem(String 菜单名, String 回调方法名)</code></li>
+  <li><strong>添加临时菜单</strong>：<code>addTemporaryItem(String 菜单名, String 回调方法名)</code> —— 与 <code>addItem</code> 相同，但菜单弹窗关闭后自动删除</li>
+  <li><strong>删除菜单</strong>：<code>removeItem(String 菜单名)</code></li>
   <li><strong>回调定义</strong>：
     <pre><code>// 3参数版本
 void 回调方法名(int 聊天类型, String PeerUin, String 名称) { ... }
@@ -412,6 +542,7 @@ void 回调方法名(int 聊天类型, String PeerUin, String 名称, Object con
 <h3>2. 消息菜单（长按消息）</h3>
 <ul>
   <li><strong>添加</strong>：<code>addMenuItem(String 菜单名, String 回调方法名, int[] 消息类型数组)</code> —— 最后一个参数为空或不写则默认所有消息</li>
+  <li><strong>删除选项</strong>：<code>removeMenu(String 菜单名)</code></li>
   <li><strong>回调定义</strong>：
     <pre><code>void 回调方法名(Object msgData) {
     // msgData 为 MsgData 对象
@@ -423,22 +554,70 @@ void 回调方法名(int 聊天类型, String PeerUin, String 名称, Object con
 
 <h3>1. 日志与提示</h3>
 <ul>
-  <li><code>log(String 文件名 = "log.txt", String 内容)</code>：追加写入日志到脚本目录</li>
+  <li><code>log(Object 内容)</code>：追加写入日志到脚本目录 <code>log.txt</code></li>
+  <li><code>log(String 文件名, String 内容)</code>：追加写入日志到脚本目录下指定文件</li>
   <li><code>toast(Object 内容)</code>：系统 Toast</li>
   <li><code>qqToast(int 图标类型, Object 内容)</code>：QQ 风格顶部弹窗<br>图标：0=警告, 1=错误/失败, 2=成功</li>
+  <li><code>error(Throwable)</code>：打印异常堆栈到脚本目录 <code>error.txt</code></li>
 </ul>
 
 <h3>2. 动态加载</h3>
 <ul>
-  <li><code>loadJava(String java文件路径)</code></li>
+  <li><code>loadJava(String 路径)</code>：解释执行一个 <code>.java</code> 文件；传目录则递归加载目录下全部 <code>.java</code>（自动跳过 <code>src/</code> 子目录，该目录属于编译通道）。支持 UTF-8 BOM。</li>
+  <li><code>compileJava(String 路径)</code>：<strong>编译通道</strong>——将单个 <code>.java</code> 文件或目录（含同目录其他文件）以 Java 21 语法编译为 dex 并加载，脚本内可 <code>import</code> 使用（见「编译通道」章节）。</li>
   <li><code>loadJar(String jar文件路径)</code></li>
   <li><code>loadDex(String dex文件路径)</code></li>
   <li><code>registerActivity(Class&lt;? extends Activity&gt; 类)</code> —— 注册后可使用 startActivity 启动</li>
+  <li><code>eval(String 代码)</code>：热加载执行一段 Java 代码</li>
 </ul>
 <div class="info">jar、dex 加载后可直接使用 import 导入。</div>
 
 <h3>3. 界面</h3>
 <p><code>Activity getNowActivity()</code>：获取当前顶层 Activity（可能为 null）。</p>
+<ul>
+  <li><code>openUrl(String url)</code>：打开网页（挂载在当前窗口之上）</li>
+  <li><code>openUrl(String 标题, String url)</code>：打开网页并指定标题栏文字</li>
+  <li><code>showHtml(String html)</code>：弹出页面渲染 HTML 内容</li>
+  <li><code>showHtml(String 标题, String html)</code>：渲染 HTML 内容并指定标题栏文字</li>
+  <li>页面基于内嵌 WebView：JavaScript 已启用，<code>http/https</code> 链接在页面内打开，其余协议（如 <code>mqqapi://</code>）交系统处理</li>
+  <li><code>String encryptHtml(String 明文)</code>：将 HTML 内容转换为密文，供 <code>showHtmlEncrypted</code> 使用</li>
+  <li><code>showHtmlEncrypted(String 密文)</code>：弹出页面渲染 HTML 密文</li>
+  <li><code>showHtmlEncrypted(String 标题, String 密文)</code>：渲染 HTML 密文并指定标题栏文字</li>
+  <li>说明：<code>showHtml</code> 直接传明文即可正常使用；当不希望脚本文件里出现 HTML 明文（例如把脚本分享给他人时），先用 <code>encryptHtml</code> 生成密文，再以 <code>showHtmlEncrypted</code> 调用，显示效果与明文版完全一致</li>
+</ul>
+
+<h3>4. HTML 页面示例</h3>
+<p>脚本逻辑（Java）负责组装数据，<code>showHtml</code> 渲染 HTML 界面：</p>
+<pre><code>// 收到消息时弹出数据展示页
+public void onMsg(Object msgData) {
+    String html = "&lt;h2&gt;消息详情&lt;/h2&gt;"
+        + "&lt;p&gt;来自: " + msgData.peerUin + "&lt;/p&gt;"
+        + "&lt;p&gt;内容: " + msgData.msg + "&lt;/p&gt;"
+        + "&lt;button onclick=\"alert('页面JS已启用')\"&gt;测试&lt;/button&gt;";
+    showHtml("消息详情", html);
+}</code></pre>
+<div class="info"><strong>能力边界</strong>：页面内 JS 只能做页面自身的交互（DOM、动画、弹窗等），<strong>无法反向调用脚本 API</strong>（如页面按钮直接触发 <code>sendMsg</code>/<code>log</code>）；如需页面操作驱动脚本逻辑，需在模块侧扩展 JS 桥接。另外 <code>showHtml</code> 每次弹出独立页面，页面间不共享状态——跨页面传递数据可借助 <code>putString</code>/<code>getString</code> 配置存储。</div>
+<p>如需在脚本文件里隐藏 HTML 明文，用 <code>encryptHtml</code> + <code>showHtmlEncrypted</code>：</p>
+<pre><code>// 第一步（开发时执行一次）：把 HTML 内容转成密文
+log(encryptHtml("&lt;h2&gt;隐藏页面&lt;/h2&gt;&lt;p&gt;内容不直接出现在脚本里&lt;/p&gt;"));  // 复制日志输出的密文
+
+// 第二步：把上一步得到的密文写进脚本，替换下方 "粘贴密文" 字样
+String cipher = "粘贴第一步输出的密文";
+showHtmlEncrypted("隐藏页面", cipher);</code></pre>
+<div class="info"><strong>提示</strong>：密文由 <code>encryptHtml</code> 一次性生成、长期有效；脚本分享给他人时，对方只能看到密文，无法直接读出页面内容。<code>showHtml</code> 与 <code>showHtmlEncrypted</code> 显示效果一致，可按需选用。</div>
+
+<h3>5. 网络请求</h3>
+<ul>
+  <li><code>String httpGet(String url)</code>：同步 GET 请求，返回响应文本</li>
+  <li><code>String httpPost(String url, Map 参数)</code>：同步 POST 表单请求，仅支持字符串值</li>
+</ul>
+
+<h3>6. 当前聊天窗口</h3>
+<ul>
+  <li><code>int getChatType()</code>：当前聊天类型，1=私聊 2=群聊</li>
+  <li><code>String getCurrentGroupUin()</code>：当前聊天的群号，私聊返回空串</li>
+  <li><code>String getCurrentFriendUin()</code>：当前聊天的好友 QQ，群聊返回空串</li>
+</ul>
 
 <h2 id="example">完整示例</h2>
 <p>一个监听群消息并自动回复的脚本示例：</p>
@@ -496,6 +675,169 @@ public void unLoadPlugin() {
   }
   window.addEventListener('scroll', onScroll, {passive:true});
   onScroll();
+})();
+
+// 主题切换（深浅色），跟随系统偏好，可手动覆盖并记住选择
+(function(){
+  var KEY = 'xr-doc-theme';
+  var btn = document.getElementById('themeToggle');
+  var root = document.documentElement;
+
+  var saved = null;
+  try { saved = localStorage.getItem(KEY); } catch(e){}
+
+  function apply(theme){
+    root.setAttribute('data-theme', theme);
+    btn.textContent = theme === 'light' ? '☀️' : '🌙';
+  }
+
+  if (saved) {
+    apply(saved);
+  } else if (window.matchMedia) {
+    var mq = window.matchMedia('(prefers-color-scheme: light)');
+    apply(mq.matches ? 'light' : 'dark');
+    mq.addEventListener('change', function(e){
+      if (!localStorage.getItem(KEY)) apply(e.matches ? 'light' : 'dark');
+    });
+  } else {
+    apply('dark');
+  }
+
+  btn.addEventListener('click', function(){
+    var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    apply(next);
+    try { localStorage.setItem(KEY, next); } catch(e){}
+  });
+})();
+
+// 全文搜索：索引章节标题 + 方法/字段签名，输入即出结果，点击跳转并高亮
+(function(){
+  var input = document.getElementById('searchInput');
+  var box = document.getElementById('searchResults');
+  if (!input || !box) return;
+
+  var main = document.querySelector('main');
+  // 索引：章节标题 -> 该章节内的 code 签名文本（h2/h3 无 id 时自动分配，保证可跳转）
+  var index = [];
+  var current = null;
+  var secSeq = 0;
+  var nodes = main.querySelectorAll('h2, h3, code');
+  nodes.forEach(function(n){
+    if (n.tagName === 'H2' || n.tagName === 'H3') {
+      if (!n.id) n.id = 'sec-' + (++secSeq);
+      current = { id: n.id, title: n.textContent.trim(), sigs: [] };
+      index.push(current);
+    } else if (current && n.textContent.trim()) {
+      var t = n.textContent.trim();
+      if (current.sigs.indexOf(t) === -1) current.sigs.push(t);
+    }
+  });
+
+  function esc(s){
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function clearMarks(){
+    document.querySelectorAll('mark').forEach(function(m){
+      var p = m.parentNode;
+      p.replaceChild(document.createTextNode(m.textContent), m);
+      p.normalize();
+    });
+  }
+
+  function highlightSection(id, kw){
+    clearMarks();
+    var sec = document.getElementById(id);
+    if (!sec) return;
+    var found = false;
+    // 仅在当前章节范围（sec 到下一个同级 h2/h3 之间）内查找首个匹配
+    var el = sec;
+    while (el && !found) {
+      var tag = el.tagName;
+      var els = (tag === 'H3' || tag === 'H4' || tag === 'P' || tag === 'LI' || tag === 'TD' || tag === 'PRE')
+        ? [el] : Array.prototype.slice.call(el.querySelectorAll('h3, h4, p, li, td, pre'));
+      els.forEach(function(node){
+        if (found) return;
+        if (!node.textContent.toLowerCase().includes(kw)) return;
+        Array.prototype.forEach.call(node.childNodes, function(child){
+          if (found || child.nodeType !== 3) return;
+          var i = child.textContent.toLowerCase().indexOf(kw);
+          if (i !== -1) {
+            var span = document.createElement('mark');
+            span.textContent = child.textContent.substr(i, kw.length);
+            var frag = document.createDocumentFragment();
+            frag.appendChild(document.createTextNode(child.textContent.substr(0, i)));
+            frag.appendChild(span);
+            frag.appendChild(document.createTextNode(child.textContent.substr(i + kw.length)));
+            node.replaceChild(frag, child);
+            found = true;
+          }
+        });
+      });
+      el = el.nextElementSibling;
+      if (el && (el.tagName === 'H2' || el.tagName === 'H3')) break;
+    }
+  }
+
+  function render(q){
+    box.innerHTML = '';
+    if (!q) { box.classList.remove('show'); return; }
+    var lq = q.toLowerCase();
+    var hits = [];
+    index.forEach(function(sec){
+      var score = 0;
+      var sigHit = '';
+      if (sec.title.toLowerCase().indexOf(lq) !== -1) score += 50;
+      sec.sigs.forEach(function(s){
+        var ls = s.toLowerCase();
+        if (ls === lq) { score += 30; if(!sigHit) sigHit = s; }
+        else if (ls.indexOf(lq) !== -1) { score += 10; if(!sigHit) sigHit = s; }
+      });
+      if (score > 0) hits.push({ id: sec.id, title: sec.title, sig: sigHit, score: score });
+    });
+    hits.sort(function(a,b){ return b.score - a.score; });
+    if (hits.length === 0) {
+      var d = document.createElement('div');
+      d.className = 'empty';
+      d.textContent = '未找到与 "' + q + '" 相关的内容';
+      box.appendChild(d);
+    } else {
+      hits.slice(0, 15).forEach(function(h){
+        var a = document.createElement('a');
+        a.href = '#' + h.id;
+        var title = document.createElement('span');
+        title.className = 'sec';
+        title.textContent = h.title;
+        a.appendChild(title);
+        if (h.sig) {
+          var ctx = document.createElement('span');
+          ctx.className = 'ctx';
+          ctx.textContent = h.sig;
+          a.appendChild(ctx);
+        }
+        a.addEventListener('click', function(e){
+          e.preventDefault();
+          box.classList.remove('show');
+          var target = document.getElementById(h.id);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            try { history.replaceState(null, '', '#' + h.id); } catch(err) {}
+          }
+          highlightSection(h.id, lq);
+        });
+        box.appendChild(a);
+      });
+    }
+    box.classList.add('show');
+  }
+
+  input.addEventListener('input', function(){ render(input.value.trim().toLowerCase()); });
+  input.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') box.classList.remove('show');
+  });
+  document.addEventListener('click', function(e){
+    if (!input.contains(e.target) && !box.contains(e.target)) box.classList.remove('show');
+  });
 })();
 </script>
 </body>
